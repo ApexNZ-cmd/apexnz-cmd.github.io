@@ -59,14 +59,34 @@
         <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             
 <!-- SkeletonOS Card -->
-<div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-brand-purple transition">
-    <h3 class="text-xl font-bold text-white mb-2">SkeletonOS</h3>
-    <p class="text-slate-400 text-sm mb-4">A minimalist 16-bit x86 operating system bootloader built in Assembly for QEMU.</p>
-    <div class="flex items-center gap-4">
-        <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-purple hover:underline">
-            <i class="fa-brands fa-github"></i> View Repository
-        </a>
+<div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 overflow-hidden hover:border-brand-purple transition">
+    
+    <!-- Left Side: Title, Description, and Link -->
+    <div class="space-y-2">
+        <h3 class="text-xl font-bold text-white">SkeletonOS</h3>
+        <p class="text-slate-400 text-sm max-w-md">
+            A minimalist 16-bit x86 operating system bootloader built in Assembly for QEMU.
+        </p>
+        <div class="pt-2">
+            <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-purple hover:underline">
+                <i class="fa-brands fa-github"></i> View Repository
+            </a>
+        </div>
     </div>
+
+    <!-- Right Side: Clean Stat Badges -->
+    <div class="flex items-center gap-2 shrink-0">
+        <span class="bg-slate-800 text-slate-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-700">
+            stars <strong class="text-white">0</strong>
+        </span>
+        <span class="bg-slate-800 text-slate-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-700">
+            forks <strong class="text-white">0</strong>
+        </span>
+        <span class="bg-cyan-950 text-cyan-400 text-xs font-semibold px-3 py-1.5 rounded-lg border border-cyan-800">
+            Assembly 100%
+        </span>
+    </div>
+
 </div>
                 
                 <!-- Live GitHub Shields/Badges -->
