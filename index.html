@@ -38,7 +38,7 @@
         </a>
         <div class="flex items-center gap-4 text-sm font-medium text-slate-400">
             <a href="about.html" class="hover:text-white transition">About</a>
-            <a href="projects.html" class="hover:text-white transition font-semibold text-slate-200">Projects</a>
+            <a href="projects.html" class="hover:text-white transition">Projects</a>
             <a href="https://github.com/ApexNZ-cmd" target="_blank" class="hover:text-white transition">GitHub</a>
             <a href="https://discord.gg/UrdfAN2Ju" target="_blank" class="bg-brand-purple hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition flex items-center gap-2">
                 <i class="fa-brands fa-discord"></i> Discord
@@ -47,7 +47,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="max-w-4xl mx-auto text-center py-20 px-6 my-auto">
+    <section class="max-w-4xl mx-auto text-center pt-12 pb-8 px-6">
         <span class="text-brand-cyan text-sm font-semibold tracking-normal uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">Developer Portfolio</span>
         <h1 class="text-5xl md:text-6xl font-black mt-6 mb-4 tracking-tight">
             Welcome to the official dev website of <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-cyan">ApexNZ</span>
@@ -55,7 +55,7 @@
         <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
             ApexNZ is a barebones OS dev, coder, and tech specialist.
         </p>
-        <div class="flex justify-center gap-4 flex-wrap">
+        <div class="flex justify-center gap-4 flex-wrap mb-10">
             <a href="projects.html" class="bg-brand-purple hover:bg-purple-600 text-white font-semibold px-6 py-3 rounded-xl transition shadow-lg shadow-brand-purple/20 flex items-center gap-2">
                 View Projects <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
@@ -65,8 +65,46 @@
         </div>
     </section>
 
+    <!-- Interactive Terminal Widget -->
+    <section class="max-w-3xl mx-auto px-6 w-full mb-12">
+        <div class="bg-[#0D1117] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl font-mono text-xs md:text-sm">
+            <!-- Terminal Header -->
+            <div class="bg-brand-card/80 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                </div>
+                <div class="text-slate-400 text-xs font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-terminal text-brand-cyan"></i> apexnz@kernel:~
+                </div>
+                <div class="w-12"></div>
+            </div>
+
+            <!-- Terminal Output Area -->
+            <div id="terminal-body" class="p-4 md:p-6 h-64 overflow-y-auto space-y-3 text-slate-300">
+                <div>
+                    <span class="text-brand-cyan">guest@apexnz</span>:<span class="text-brand-purple">~</span>$ help<br>
+                    <span class="text-slate-400">Welcome to ApexOS v1.0 CLI. Available commands:</span><br>
+                    <span class="text-slate-200">  about     </span> - Learn more about ApexNZ<br>
+                    <span class="text-slate-200">  projects  </span> - List featured repositories<br>
+                    <span class="text-slate-200">  skills    </span> - View dev stack & tech specialties<br>
+                    <span class="text-slate-200">  whoami    </span> - Check current session user<br>
+                    <span class="text-slate-200">  clear     </span> - Clear terminal buffer
+                </div>
+            </div>
+
+            <!-- Terminal Input Row -->
+            <form id="terminal-form" class="p-4 bg-black/40 border-t border-slate-800 flex items-center gap-2">
+                <span class="text-brand-cyan font-bold">guest@apexnz</span>
+                <span class="text-brand-purple font-bold">:~$</span>
+                <input type="text" id="terminal-input" class="bg-transparent border-none outline-none text-slate-100 flex-1 font-mono text-xs md:text-sm focus:ring-0" placeholder="type 'help' or 'projects'..." autocomplete="off" spellcheck="false" autofocus>
+            </form>
+        </div>
+    </section>
+
     <!-- Links & Socials -->
-    <section class="max-w-4xl mx-auto text-center py-8 px-6">
+    <section class="max-w-4xl mx-auto text-center py-6 px-6">
         <h2 class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-6">Connect With Me</h2>
         <div class="flex justify-center items-center gap-6 text-slate-400 text-2xl">
             <a href="https://discord.gg/UrdfAN2Ju" target="_blank" class="hover:text-brand-purple transition" title="Discord"><i class="fa-brands fa-discord"></i></a>
@@ -78,6 +116,69 @@
     <footer class="border-t border-slate-800/60 py-8 text-center text-slate-500 text-sm">
         <p>&copy; ApexNZ. Hosted on GitHub Pages.</p>
     </footer>
+
+    <!-- Terminal Script -->
+    <script>
+        const form = document.getElementById('terminal-form');
+        const input = document.getElementById('terminal-input');
+        const body = document.getElementById('terminal-body');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const cmd = input.value.trim().toLowerCase();
+            if (!cmd) return;
+
+            // Render Prompt Line
+            const promptLine = document.createElement('div');
+            promptLine.innerHTML = `<span class="text-brand-cyan">guest@apexnz</span>:<span class="text-brand-purple">~</span>$ ${escapeHtml(cmd)}`;
+            body.appendChild(promptLine);
+
+            // Command Responses
+            const response = document.createElement('div');
+            response.className = 'text-slate-400 mb-2';
+
+            switch (cmd) {
+                case 'help':
+                    response.innerHTML = `Available commands:<br>` +
+                        `<span class="text-slate-200">  about     </span> - Learn more about ApexNZ<br>` +
+                        `<span class="text-slate-200">  projects  </span> - List featured repositories<br>` +
+                        `<span class="text-slate-200">  skills    </span> - View dev stack & tech specialties<br>` +
+                        `<span class="text-slate-200">  whoami    </span> - Check current session user<br>` +
+                        `<span class="text-slate-200">  clear     </span> - Clear terminal buffer`;
+                    break;
+                case 'about':
+                    response.innerHTML = `ApexNZ is a low-level systems developer building custom barebones OS kernels, retro Linux skins, and software tools.`;
+                    break;
+                case 'projects':
+                    response.innerHTML = `<span class="text-brand-purple font-bold">SkeletonOS:</span> Lightweight barebones OS kernel.<br>` +
+                        `<span class="text-brand-cyan font-bold">Linux98:</span> Retro late-90s desktop skin for Linux Mint.<br>` +
+                        `<a href="projects.html" class="text-brand-cyan underline">View all projects page -></a>`;
+                    break;
+                case 'skills':
+                    response.innerHTML = `[+] Assembly & C (Barebones OS Kernel Architecture)<br>` +
+                        `[+] Linux Customizations & Bash Automation<br>` +
+                        `[+] Minimalist Systems Engineering`;
+                    break;
+                case 'whoami':
+                    response.innerHTML = `guest_user@apexnz-portfolio (Permissions: Read-Only)`;
+                    break;
+                case 'clear':
+                    body.innerHTML = '';
+                    input.value = '';
+                    return;
+                default:
+                    response.innerHTML = `<span class="text-red-400">Command not found: '${escapeHtml(cmd)}'. Type <span class="text-slate-200">'help'</span> for a list of commands.</span>`;
+            }
+
+            body.appendChild(response);
+            input.value = '';
+            body.scrollTop = body.scrollHeight;
+        });
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+    </script>
 
 </body>
 </html>
