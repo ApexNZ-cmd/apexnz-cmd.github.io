@@ -109,12 +109,12 @@
         </div>
     </section>
 
-    <!-- Instant Reliable Visitor Counter -->
+    <!-- Global Total Visitor Counter -->
     <div class="flex justify-center items-center my-4">
         <div class="bg-brand-card/80 border border-slate-800 px-4 py-2 rounded-xl flex items-center gap-3 shadow-lg">
             <i class="fa-solid fa-eye text-brand-cyan text-sm"></i>
-            <span class="text-xs text-slate-400 font-mono">Session Visits:</span>
-            <span id="visit-count" class="text-xs font-mono font-bold text-brand-purple bg-brand-purple/10 border border-brand-purple/30 px-2 py-0.5 rounded">1</span>
+            <span class="text-xs text-slate-400 font-mono">Total Site Visits:</span>
+            <span id="global-visit-count" class="text-xs font-mono font-bold text-brand-purple bg-brand-purple/10 border border-brand-purple/30 px-2 py-0.5 rounded">Loading...</span>
         </div>
     </div>
 
@@ -132,9 +132,9 @@
         <p>&copy; ApexNZ. Hosted on GitHub Pages.</p>
     </footer>
 
-    <!-- Terminal & Counter Scripts -->
+    <!-- Scripts -->
     <script>
-        // Interactive Terminal logic
+        // Interactive Terminal
         const form = document.getElementById('terminal-form');
         const input = document.getElementById('terminal-input');
         const body = document.getElementById('terminal-body');
@@ -193,15 +193,15 @@
             return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         }
 
-        // Instant Local Visit Counter
-        let visits = localStorage.getItem('apexnz_visits');
-        if (!visits) {
-            visits = 1;
-        } else {
-            visits = parseInt(visits) + 1;
-        }
-        localStorage.setItem('apexnz_visits', visits);
-        document.getElementById('visit-count').innerText = visits;
+        // Real-Time Global All-Time Hit Counter
+        fetch('https://abacus.jasoncameron.dev/hit/apexnz-cmd.github.io/total_visits')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('global-visit-count').innerText = data.value;
+            })
+            .catch(() => {
+                document.getElementById('global-visit-count').innerText = '1';
+            });
     </script>
 
 </body>
