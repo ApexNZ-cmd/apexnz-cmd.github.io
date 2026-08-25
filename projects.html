@@ -58,25 +58,16 @@
     <section class="max-w-6xl mx-auto px-6 py-8 w-full my-auto">
         <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             
-            <!-- SkeletonOS -->
-            <div class="bg-brand-card p-6 rounded-2xl border border-slate-800 hover:border-brand-purple/50 transition group flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-12 h-12 bg-brand-purple/20 rounded-xl flex items-center justify-center text-brand-purple group-hover:scale-105 transition">
-                            <i class="fa-solid fa-microchip text-xl"></i>
-                        </div>
-                        <span class="text-xs font-mono bg-purple-950/60 text-brand-purple border border-brand-purple/30 px-2.5 py-1 rounded-md">Barebones OS</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2 flex items-center justify-between">
-                        <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank" class="hover:text-brand-purple transition">
-                            SkeletonOS
-                        </a>
-                        <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank">
-                            <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-500 group-hover:text-brand-purple transition"></i>
-                        </a>
-                    </h3>
-                    <p class="text-slate-400 text-sm mb-6">A lightweight, custom barebones operating system kernel engineered for speed and minimalist system architecture.</p>
-                </div>
+<!-- SkeletonOS Card -->
+<div class="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-brand-purple transition">
+    <h3 class="text-xl font-bold text-white mb-2">SkeletonOS</h3>
+    <p class="text-slate-400 text-sm mb-4">A minimalist 16-bit x86 operating system bootloader built in Assembly for QEMU.</p>
+    <div class="flex items-center gap-4">
+        <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-purple hover:underline">
+            <i class="fa-brands fa-github"></i> View Repository
+        </a>
+    </div>
+</div>
                 
                 <!-- Live GitHub Shields/Badges -->
                 <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
