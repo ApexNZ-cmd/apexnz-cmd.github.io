@@ -4,104 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | ApexNZ</title>
+    <!-- Custom Favicon -->
+    <link rel="icon" type="image/png" href="favicon_apexnz.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        'brand-purple': '#a855f7',
+                        brand: {
+                            purple: '#7C3AED',
+                            cyan: '#06B6D4',
+                            dark: '#0B0F17',
+                            card: '#161F30'
+                        }
                     }
                 }
             }
         }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-brand-purple selection:text-white min-h-screen flex flex-col justify-between">
 
-    <!-- Navigation Bar -->
-    <nav class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="font-bold text-lg tracking-wider text-white hover:text-brand-purple transition">
+    <!-- Navigation -->
+    <nav class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center w-full">
+        <a href="/" class="flex items-center gap-3 group">
+            <img src="favicon_apexnz.png" alt="ApexNZ Logo" class="w-8 h-8 rounded-lg group-hover:scale-105 transition">
+            <span class="text-2xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-purple">
                 ApexNZ
+            </span>
+        </a>
+        <div class="flex items-center gap-4 text-sm font-medium text-slate-400">
+            <a href="/" class="hover:text-white transition">Home</a>
+            <a href="about.html" class="hover:text-white transition">About</a>
+            <a href="projects.html" class="hover:text-white transition font-semibold text-slate-200">Projects</a>
+            <a href="https://github.com/ApexNZ-cmd" target="_blank" class="hover:text-white transition">GitHub</a>
+            <a href="https://discord.gg/UrdfAN2Ju" target="_blank" class="bg-brand-purple hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition flex items-center gap-2">
+                <i class="fa-brands fa-discord"></i> Discord
             </a>
-            <div class="flex gap-6 text-sm font-medium">
-                <a href="index.html" class="text-slate-400 hover:text-white transition">Home</a>
-                <a href="about.html" class="text-slate-400 hover:text-white transition">About</a>
-                <a href="projects.html" class="text-brand-purple font-semibold">Projects</a>
-            </div>
         </div>
     </nav>
 
-    <!-- Main Container -->
-    <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-12">
-        <header class="mb-10">
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-2">Projects</h1>
-            <p class="text-slate-400 text-sm sm:text-base">Custom systems, low-level binaries, and web applications.</p>
-        </header>
+    <!-- Header -->
+    <section class="max-w-4xl mx-auto text-center pt-12 pb-6 px-6">
+        <span class="text-brand-purple text-sm font-semibold tracking-normal uppercase bg-brand-purple/10 px-3 py-1 rounded-full border border-brand-purple/20">Work & Creations</span>
+        <h1 class="text-4xl md:text-5xl font-black mt-4 mb-2 tracking-tight">Projects</h1>
+        <p class="text-slate-400 text-base max-w-xl mx-auto">Explore open-source operating system kernels, Linux customizations, and software tools built by ApexNZ.</p>
+    </section>
 
-        <div class="space-y-4">
-
-            <!-- SkeletonOS Card -->
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-brand-purple transition">
-                <div class="space-y-2">
-                    <h2 class="text-xl font-bold text-white">SkeletonOS</h2>
-                    <p class="text-slate-400 text-sm max-w-md">
-                        A minimalist 16-bit x86 operating system bootloader built in Assembly for QEMU.
-                    </p>
-                    <div>
-                        <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-purple hover:underline">
-                            <i class="fa-brands fa-github text-sm"></i> View Repository
-                        </a>
+    <!-- Projects Section -->
+    <section class="max-w-6xl mx-auto px-6 py-8 w-full my-auto">
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            
+            <!-- SkeletonOS -->
+            <div class="bg-brand-card p-6 rounded-2xl border border-slate-800 hover:border-brand-purple/50 transition group flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-brand-purple/20 rounded-xl flex items-center justify-center text-brand-purple group-hover:scale-105 transition">
+                            <i class="fa-solid fa-microchip text-xl"></i>
+                        </div>
+                        <span class="text-xs font-mono bg-purple-950/60 text-brand-purple border border-brand-purple/30 px-2.5 py-1 rounded-md">Barebones OS</span>
                     </div>
+                    <h3 class="text-2xl font-bold mb-2 flex items-center justify-between">
+                        <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank" class="hover:text-brand-purple transition">
+                            SkeletonOS
+                        </a>
+                        <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-500 group-hover:text-brand-purple transition"></i>
+                        </a>
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-6">A lightweight, custom barebones operating system kernel engineered for speed and minimalist system architecture.</p>
                 </div>
-                <div class="flex items-center gap-2 shrink-0">
-                    <span class="bg-slate-800 text-slate-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-700">
-                        stars <strong class="text-white">0</strong>
-                    </span>
-                    <span class="bg-slate-800 text-slate-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-700">
-                        forks <strong class="text-white">0</strong>
-                    </span>
-                    <span class="bg-cyan-950 text-cyan-400 text-xs font-semibold px-3 py-1.5 rounded-lg border border-cyan-800">
-                        Assembly 100%
-                    </span>
+                
+                <!-- Live GitHub Shields/Badges -->
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+                    <img src="https://img.shields.io/github/stars/ApexNZ-cmd/SkeletonOS?style=flat-square&color=7C3AED&labelColor=161F30" alt="SkeletonOS Stars">
+                    <img src="https://img.shields.io/github/forks/ApexNZ-cmd/SkeletonOS?style=flat-square&color=7C3AED&labelColor=161F30" alt="SkeletonOS Forks">
+                    <img src="https://img.shields.io/github/languages/top/ApexNZ-cmd/SkeletonOS?style=flat-square&color=06B6D4&labelColor=161F30" alt="SkeletonOS Top Language">
                 </div>
             </div>
 
-            <!-- Linux98 Card -->
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-brand-purple transition">
-                <div class="space-y-2">
-                    <h2 class="text-xl font-bold text-white">Linux98</h2>
-                    <p class="text-slate-400 text-sm max-w-md">
-                        A retro Windows 98-style web desktop environment running custom tools and utilities.
-                    </p>
-                    <div>
-                        <a href="https://github.com/ApexNZ-cmd/Linux98" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-purple hover:underline">
-                            <i class="fa-brands fa-github text-sm"></i> View Repository
-                        </a>
+            <!-- Linux98 -->
+            <div class="bg-brand-card p-6 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition group flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-brand-cyan/20 rounded-xl flex items-center justify-center text-brand-cyan group-hover:scale-105 transition">
+                            <i class="fa-solid fa-terminal text-xl"></i>
+                        </div>
+                        <span class="text-xs font-mono bg-cyan-950/60 text-brand-cyan border border-brand-cyan/30 px-2.5 py-1 rounded-md">Linux Mint Skin</span>
                     </div>
+                    <h3 class="text-2xl font-bold mb-2 flex items-center justify-between">
+                        <a href="https://github.com/ApexNZ-cmd/Linux98" target="_blank" class="hover:text-brand-cyan transition">
+                            Linux98
+                        </a>
+                        <a href="https://github.com/ApexNZ-cmd/Linux98" target="_blank">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-500 group-hover:text-brand-cyan transition"></i>
+                        </a>
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-6">A retro-inspired Linux transformation bringing classic late-90s desktop aesthetics to modern system environments.</p>
                 </div>
-                <div class="flex items-center gap-2 shrink-0">
-                    <span class="bg-slate-800 text-slate-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-700">
-                        stars <strong class="text-white">0</strong>
-                    </span>
-                    <span class="bg-slate-800 text-slate-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-700">
-                        forks <strong class="text-white">0</strong>
-                    </span>
-                    <span class="bg-amber-950 text-amber-400 text-xs font-semibold px-3 py-1.5 rounded-lg border border-amber-800">
-                        JavaScript 100%
-                    </span>
+
+                <!-- Live GitHub Shields/Badges -->
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+                    <img src="https://img.shields.io/github/stars/ApexNZ-cmd/Linux98?style=flat-square&color=06B6D4&labelColor=161F30" alt="Linux98 Stars">
+                    <img src="https://img.shields.io/github/forks/ApexNZ-cmd/Linux98?style=flat-square&color=06B6D4&labelColor=161F30" alt="Linux98 Forks">
+                    <img src="https://img.shields.io/github/languages/top/ApexNZ-cmd/Linux98?style=flat-square&color=7C3AED&labelColor=161F30" alt="Linux98 Top Language">
                 </div>
             </div>
 
         </div>
-    </main>
+    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
-        <p>&copy; ApexNZ. All rights reserved.</p>
+    <footer class="border-t border-slate-800/60 py-8 text-center text-slate-500 text-sm">
+        <p>&copy; ApexNZ. Hosted on GitHub Pages.</p>
     </footer>
 
 </body>
