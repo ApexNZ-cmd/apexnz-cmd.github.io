@@ -1,2 +1,2 @@
 # apexnz-cmd.github.io
-ApexNZ Home Page
+ApexNZ Website for updates, and to just look around. Have fun!
