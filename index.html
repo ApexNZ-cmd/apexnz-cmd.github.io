@@ -109,18 +109,13 @@
         </div>
     </section>
 
-<!-- Reliable Visitor Counter Script -->
-    <script>
-        fetch('https://api.countapi.pages.dev/hit/apexnz-cmd-portfolio/visits')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('visit-count').innerText = data.value || '1';
-            })
-            .catch(() => {
-                document.getElementById('visit-count').innerText = '1+';
-            });
-    </script>
-    </div>
+    <!-- Instant Reliable Visitor Counter -->
+    <div class="flex justify-center items-center my-4">
+        <div class="bg-brand-card/80 border border-slate-800 px-4 py-2 rounded-xl flex items-center gap-3 shadow-lg">
+            <i class="fa-solid fa-eye text-brand-cyan text-sm"></i>
+            <span class="text-xs text-slate-400 font-mono">Session Visits:</span>
+            <span id="visit-count" class="text-xs font-mono font-bold text-brand-purple bg-brand-purple/10 border border-brand-purple/30 px-2 py-0.5 rounded">1</span>
+        </div>
     </div>
 
     <!-- Links & Socials -->
@@ -137,8 +132,9 @@
         <p>&copy; ApexNZ. Hosted on GitHub Pages.</p>
     </footer>
 
-    <!-- Terminal Script -->
+    <!-- Terminal & Counter Scripts -->
     <script>
+        // Interactive Terminal logic
         const form = document.getElementById('terminal-form');
         const input = document.getElementById('terminal-input');
         const body = document.getElementById('terminal-body');
@@ -196,6 +192,16 @@
         function escapeHtml(text) {
             return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         }
+
+        // Instant Local Visit Counter
+        let visits = localStorage.getItem('apexnz_visits');
+        if (!visits) {
+            visits = 1;
+        } else {
+            visits = parseInt(visits) + 1;
+        }
+        localStorage.setItem('apexnz_visits', visits);
+        document.getElementById('visit-count').innerText = visits;
     </script>
 
 </body>
