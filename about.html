@@ -49,12 +49,12 @@
 
     <!-- Header -->
     <section class="max-w-4xl mx-auto text-center pt-12 pb-6 px-6">
-        <span class="text-brand-cyan text-sm font-semibold tracking-normal uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">Background & Skills</span>
-        <h1 class="text-4xl md:text-5xl font-black mt-4 mb-2 tracking-tight">About Me</h1>
-        <p class="text-slate-400 text-base max-w-xl mx-auto">Get to know more about my low-level development background, toolstack, and system philosophy.</p>
+        <span class="text-brand-cyan text-sm font-semibold tracking-normal uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">Background & Contact</span>
+        <h1 class="text-4xl md:text-5xl font-black mt-4 mb-2 tracking-tight">About & Reach Out</h1>
+        <p class="text-slate-400 text-base max-w-xl mx-auto">Get to know my low-level development background or send me a direct message.</p>
     </section>
 
-    <!-- Content Section -->
+    <!-- Main Content Grid -->
     <section class="max-w-4xl mx-auto px-6 py-8 w-full my-auto space-y-8">
         
         <!-- Bio Card -->
@@ -65,7 +65,7 @@
             </p>
         </div>
 
-        <!-- Tech Stack Grid -->
+        <!-- Live Discord Widget & Tech Stack Grid -->
         <div class="grid md:grid-cols-2 gap-6">
             
             <!-- Systems & OS Dev -->
@@ -79,17 +79,55 @@
                 </ul>
             </div>
 
-            <!-- Linux & Environments -->
-            <div class="bg-brand-card p-6 rounded-2xl border border-slate-800">
-                <div class="text-brand-cyan text-2xl mb-3"><i class="fa-solid fa-terminal"></i></div>
-                <h3 class="text-xl font-bold mb-3">Linux & Scripting</h3>
-                <ul class="text-slate-400 text-sm space-y-2">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan text-xs"></i> Custom Distros & Desktop Skins</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan text-xs"></i> Bash / Shell Automation</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan text-xs"></i> Linux Kernel Tools & Mint Systems</li>
-                </ul>
+            <!-- Discord Community Badge -->
+            <div class="bg-brand-card p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                <div>
+                    <div class="text-brand-cyan text-2xl mb-3"><i class="fa-brands fa-discord"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Discord Community</h3>
+                    <p class="text-slate-400 text-sm mb-4">Join my Discord server to follow OS development updates live and hang out with the community.</p>
+                </div>
+                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="relative flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                        </span>
+                        <span class="text-xs text-slate-300 font-mono">Server Active</span>
+                    </div>
+                    <a href="https://discord.gg/UrdfAN2Ju" target="_blank" class="text-xs bg-brand-purple/20 hover:bg-brand-purple/40 text-brand-purple border border-brand-purple/30 px-3 py-1.5 rounded-lg transition font-semibold">
+                        Join Server <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
             </div>
 
+        </div>
+
+        <!-- Formspree Contact Form Section -->
+        <div class="bg-brand-card p-8 rounded-2xl border border-slate-800">
+            <div class="mb-6">
+                <span class="text-xs uppercase tracking-widest text-slate-500 font-bold">Get In Touch</span>
+                <h3 class="text-2xl font-bold text-slate-100 mt-1">Send a Direct Message</h3>
+            </div>
+            
+            <form action="https://formspree.io/f/mvkpjrkw" method="POST" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1 font-medium">Your Name</label>
+                        <input type="text" name="name" required placeholder="Developer" class="w-full bg-[#0D1117] border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-brand-purple transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1 font-medium">Your Email</label>
+                        <input type="email" name="email" required placeholder="dev@example.com" class="w-full bg-[#0D1117] border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-brand-purple transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1 font-medium">Message</label>
+                    <textarea name="message" rows="4" required placeholder="Hey ApexNZ, love the OS project..." class="w-full bg-[#0D1117] border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 focus:outline-none focus:border-brand-purple transition resize-none"></textarea>
+                </div>
+                <button type="submit" class="bg-brand-purple hover:bg-purple-600 text-white font-semibold px-6 py-2.5 rounded-xl transition flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-paper-plane text-xs"></i> Send Message
+                </button>
+            </form>
         </div>
 
     </section>
