@@ -19,9 +19,9 @@
         }
     </script>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans antialiased">
 
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="index.html" class="font-bold text-lg tracking-wider text-white hover:text-brand-purple transition">
@@ -29,35 +29,35 @@
             </a>
             <div class="flex gap-6 text-sm font-medium">
                 <a href="index.html" class="text-slate-400 hover:text-white transition">Home</a>
+                <a href="about.html" class="text-slate-400 hover:text-white transition">About</a>
                 <a href="projects.html" class="text-brand-purple font-semibold">Projects</a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Container -->
     <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-12">
         <header class="mb-10">
-            <h1 class="text-4xl font-extrabold text-white mb-3">Projects</h1>
-            <p class="text-slate-400">A collection of custom operating systems, web applications, and low-level tools.</p>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-2">Projects</h1>
+            <p class="text-slate-400 text-sm sm:text-base">Custom systems, low-level binaries, and web applications.</p>
         </header>
 
-        <!-- Projects Grid -->
         <div class="space-y-4">
 
-            <!-- SkeletonOS -->
+            <!-- SkeletonOS Card -->
             <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-brand-purple transition">
-                <div class="space-y-1">
+                <div class="space-y-2">
                     <h2 class="text-xl font-bold text-white">SkeletonOS</h2>
-                    <p class="text-slate-400 text-sm max-w-lg">
+                    <p class="text-slate-400 text-sm max-w-md">
                         A minimalist 16-bit x86 operating system bootloader built in Assembly for QEMU.
                     </p>
-                    <div class="pt-2">
+                    <div>
                         <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-purple hover:underline">
                             <i class="fa-brands fa-github text-sm"></i> View Repository
                         </a>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 shrink-0 self-start sm:self-center">
+                <div class="flex items-center gap-2 shrink-0">
                     <span class="bg-slate-800 text-slate-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-700">
                         stars <strong class="text-white">0</strong>
                     </span>
@@ -70,20 +70,20 @@
                 </div>
             </div>
 
-            <!-- Linux98 -->
+            <!-- Linux98 Card -->
             <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-brand-purple transition">
-                <div class="space-y-1">
+                <div class="space-y-2">
                     <h2 class="text-xl font-bold text-white">Linux98</h2>
-                    <p class="text-slate-400 text-sm max-w-lg">
+                    <p class="text-slate-400 text-sm max-w-md">
                         A retro Windows 98-style web desktop environment running custom tools and utilities.
                     </p>
-                    <div class="pt-2">
+                    <div>
                         <a href="https://github.com/ApexNZ-cmd/Linux98" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-purple hover:underline">
                             <i class="fa-brands fa-github text-sm"></i> View Repository
                         </a>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 shrink-0 self-start sm:self-center">
+                <div class="flex items-center gap-2 shrink-0">
                     <span class="bg-slate-800 text-slate-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-700">
                         stars <strong class="text-white">0</strong>
                     </span>
@@ -101,7 +101,7 @@
 
     <!-- Footer -->
     <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
-        <p>&copy; ApexNZ. Built with HTML & Tailwind CSS.</p>
+        <p>&copy; ApexNZ. All rights reserved.</p>
     </footer>
 
 </body>
