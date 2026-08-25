@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404: Kernel Panic | ApexNZ</title>
+    <link rel="icon" type="image/png" href="favicon_apexnz.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { dark: '#0B0F17', card: '#161F30', cyan: '#06B6D4', purple: '#7C3AED' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-mono antialiased min-h-screen flex flex-col justify-center items-center px-6 text-center">
+    <div class="bg-brand-card p-8 rounded-2xl border border-red-500/40 max-w-lg w-full shadow-2xl">
+        <div class="text-red-500 text-5xl font-black mb-4">404</div>
+        <h1 class="text-xl font-bold text-red-400 mb-2">*** KERNEL PANIC ***</h1>
+        <p class="text-slate-400 text-sm mb-6">Page fault at 0x0000404. The requested path does not exist in system memory.</p>
+        <a href="/" class="inline-block bg-brand-purple hover:bg-purple-600 text-white font-sans font-semibold px-6 py-2.5 rounded-xl transition text-sm">
+            Reboot to Home
+        </a>
+    </div>
+</body>
+</html>
