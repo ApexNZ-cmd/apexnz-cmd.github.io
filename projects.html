@@ -35,6 +35,8 @@
         </a>
         <div class="flex items-center gap-4 text-sm font-medium text-slate-400">
             <a href="/" class="hover:text-white transition">Home</a>
+            <a href="about.html" class="hover:text-white transition">About</a>
+            <a href="projects.html" class="hover:text-white transition font-semibold text-slate-200">Projects</a>
             <a href="https://github.com/ApexNZ-cmd" target="_blank" class="hover:text-white transition">GitHub</a>
             <a href="https://discord.gg/UrdfAN2Ju" target="_blank" class="bg-brand-purple hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition flex items-center gap-2">
                 <i class="fa-brands fa-discord"></i> Discord
@@ -54,30 +56,60 @@
         <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             
             <!-- SkeletonOS -->
-            <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank" class="block bg-brand-card p-6 rounded-2xl border border-slate-800 hover:border-brand-purple/50 transition group">
-                <div class="w-12 h-12 bg-brand-purple/20 rounded-xl flex items-center justify-center text-brand-purple mb-4 group-hover:scale-105 transition">
-                    <i class="fa-solid fa-microchip text-xl"></i>
+            <div class="bg-brand-card p-6 rounded-2xl border border-slate-800 hover:border-brand-purple/50 transition group flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-brand-purple/20 rounded-xl flex items-center justify-center text-brand-purple group-hover:scale-105 transition">
+                            <i class="fa-solid fa-microchip text-xl"></i>
+                        </div>
+                        <span class="text-xs font-mono bg-purple-950/60 text-brand-purple border border-brand-purple/30 px-2.5 py-1 rounded-md">Barebones OS</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 flex items-center justify-between">
+                        <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank" class="hover:text-brand-purple transition">
+                            SkeletonOS
+                        </a>
+                        <a href="https://github.com/ApexNZ-cmd/SkeletonOS" target="_blank">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-500 group-hover:text-brand-purple transition"></i>
+                        </a>
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-6">A lightweight, custom barebones operating system kernel engineered for speed and minimalist system architecture.</p>
                 </div>
-                <h3 class="text-2xl font-bold mb-2 flex items-center justify-between">
-                    SkeletonOS
-                    <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-500 group-hover:text-brand-purple transition"></i>
-                </h3>
-                <p class="text-slate-400 text-sm mb-4">A lightweight, custom barebones operating system kernel engineered for speed and minimalist system architecture.</p>
-                <span class="text-xs font-mono bg-purple-950/60 text-brand-purple border border-brand-purple/30 px-2.5 py-1 rounded-md">Barebones OS</span>
-            </a>
+                
+                <!-- Live GitHub Shields/Badges -->
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+                    <img src="https://img.shields.io/github/stars/ApexNZ-cmd/SkeletonOS?style=flat-square&color=7C3AED&labelColor=161F30" alt="SkeletonOS Stars">
+                    <img src="https://img.shields.io/github/forks/ApexNZ-cmd/SkeletonOS?style=flat-square&color=7C3AED&labelColor=161F30" alt="SkeletonOS Forks">
+                    <img src="https://img.shields.io/github/languages/top/ApexNZ-cmd/SkeletonOS?style=flat-square&color=06B6D4&labelColor=161F30" alt="SkeletonOS Top Language">
+                </div>
+            </div>
 
             <!-- Linux98 -->
-            <a href="https://github.com/ApexNZ-cmd/Linux98" target="_blank" class="block bg-brand-card p-6 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition group">
-                <div class="w-12 h-12 bg-brand-cyan/20 rounded-xl flex items-center justify-center text-brand-cyan mb-4 group-hover:scale-105 transition">
-                    <i class="fa-solid fa-terminal text-xl"></i>
+            <div class="bg-brand-card p-6 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition group flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 bg-brand-cyan/20 rounded-xl flex items-center justify-center text-brand-cyan group-hover:scale-105 transition">
+                            <i class="fa-solid fa-terminal text-xl"></i>
+                        </div>
+                        <span class="text-xs font-mono bg-cyan-950/60 text-brand-cyan border border-brand-cyan/30 px-2.5 py-1 rounded-md">Linux Mint Skin</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 flex items-center justify-between">
+                        <a href="https://github.com/ApexNZ-cmd/Linux98" target="_blank" class="hover:text-brand-cyan transition">
+                            Linux98
+                        </a>
+                        <a href="https://github.com/ApexNZ-cmd/Linux98" target="_blank">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-500 group-hover:text-brand-cyan transition"></i>
+                        </a>
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-6">A retro-inspired Linux transformation bringing classic late-90s desktop aesthetics to modern system environments.</p>
                 </div>
-                <h3 class="text-2xl font-bold mb-2 flex items-center justify-between">
-                    Linux98
-                    <i class="fa-solid fa-arrow-up-right-from-square text-sm text-slate-500 group-hover:text-brand-cyan transition"></i>
-                </h3>
-                <p class="text-slate-400 text-sm mb-4">A retro-inspired Linux transformation bringing classic late-90s desktop aesthetics to modern system environments.</p>
-                <span class="text-xs font-mono bg-cyan-950/60 text-brand-cyan border border-brand-cyan/30 px-2.5 py-1 rounded-md">Linux Mint Skin</span>
-            </a>
+
+                <!-- Live GitHub Shields/Badges -->
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+                    <img src="https://img.shields.io/github/stars/ApexNZ-cmd/Linux98?style=flat-square&color=06B6D4&labelColor=161F30" alt="Linux98 Stars">
+                    <img src="https://img.shields.io/github/forks/ApexNZ-cmd/Linux98?style=flat-square&color=06B6D4&labelColor=161F30" alt="Linux98 Forks">
+                    <img src="https://img.shields.io/github/languages/top/ApexNZ-cmd/Linux98?style=flat-square&color=7C3AED&labelColor=161F30" alt="Linux98 Top Language">
+                </div>
+            </div>
 
         </div>
     </section>
