@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Apex Techsperts</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--card-bg);
+      padding: 1.5rem 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.125rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      padding: 1.75rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    .why-us {
+      margin-top: 4rem;
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary);
+    }
+
+    .why-us h2 {
+      margin-top: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">Apex Techsperts</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html" style="color: var(--primary);">Services</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Friendly & Patient Tech Support</h1>
+      <p>Helping you navigate technology with ease and confidence.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>🖨️ Device & Printer Setup</h3>
+        <p>Connecting printers, configuring Wi-Fi routers, and setting up brand-new computers, tablets, or phones.</p>
+      </div>
+
+      <div class="card">
+        <h3>🔒 Scam Safety Check</h3>
+        <p>Installing ad-blockers, cleaning out pop-ups, and reviewing account security so you stay safe online.</p>
+      </div>
+
+      <div class="card">
+        <h3>💬 1-on-1 Patient Lessons</h3>
+        <p>Learn how to use FaceTime/Zoom, organize photos, manage emails, or use social media at your own pace.</p>
+      </div>
+
+      <div class="card">
+        <h3>⚙️ Fixes & Troubleshooting</h3>
+        <p>Resolving slow performance, fixing email login issues, and backing up important documents and memories.</p>
+      </div>
+    </div>
+
+    <div class="why-us">
+      <h2>Why Choose Apex Techsperts?</h2>
+      <p>We believe technology should be stress-free! After every visit, we write down customized <strong>step-by-step notes on paper</strong> so you can comfortably do the task yourself whenever you need.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Apex Techsperts. Local & Reliable Community Support.
+  </footer>
+
+</body>
+</html>
