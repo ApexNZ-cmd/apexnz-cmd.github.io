@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <!-- Open Graph Social Embed Tags -->
     <meta property="og:title" content="ApexNZ | Services & Local Tech Support">
     <meta property="og:description" content="Official tech support and services page for Apex Techsperts & ApexNZ.">
     <meta property="og:image" content="https://apexnz-cmd.github.io/favicon_apexnz.png">
@@ -10,7 +9,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ApexNZ | Services</title>
-    <!-- Custom Favicon -->
     <link rel="icon" type="image/png" href="favicon_apexnz.png">
     <link rel="apple-touch-icon" href="favicon_apexnz.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,7 +38,6 @@
 </head>
 <body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-brand-purple selection:text-white min-h-screen flex flex-col justify-between">
 
-    <!-- Navigation -->
     <nav class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center w-full">
         <a href="index.html" class="flex items-center gap-3 group">
             <img src="favicon_apexnz.png" alt="ApexNZ Logo" class="w-8 h-8 rounded-lg group-hover:scale-105 transition">
@@ -60,7 +57,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="max-w-4xl mx-auto text-center pt-12 pb-8 px-6">
         <span class="text-brand-cyan text-sm font-semibold tracking-normal uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">Local Tech Support</span>
         <h1 class="text-5xl md:text-6xl font-black mt-6 mb-4 tracking-tight">
@@ -71,11 +67,9 @@
         </p>
     </section>
 
-    <!-- Services Grid Section -->
     <section class="max-w-4xl mx-auto px-6 mb-12 w-full">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            <!-- Service 1 -->
             <div class="bg-brand-card border border-slate-800 hover:border-brand-purple/50 p-6 rounded-2xl transition shadow-lg group">
                 <div class="w-12 h-12 bg-brand-purple/10 border border-brand-purple/20 rounded-xl flex items-center justify-center text-brand-purple text-xl mb-4 group-hover:scale-110 transition">
                     <i class="fa-solid fa-print"></i>
@@ -86,7 +80,6 @@
                 </p>
             </div>
 
-            <!-- Service 2 -->
             <div class="bg-brand-card border border-slate-800 hover:border-brand-cyan/50 p-6 rounded-2xl transition shadow-lg group">
                 <div class="w-12 h-12 bg-brand-cyan/10 border border-brand-cyan/20 rounded-xl flex items-center justify-center text-brand-cyan text-xl mb-4 group-hover:scale-110 transition">
                     <i class="fa-solid fa-shield-halved"></i>
@@ -97,7 +90,6 @@
                 </p>
             </div>
 
-            <!-- Service 3 -->
             <div class="bg-brand-card border border-slate-800 hover:border-brand-cyan/50 p-6 rounded-2xl transition shadow-lg group">
                 <div class="w-12 h-12 bg-brand-cyan/10 border border-brand-cyan/20 rounded-xl flex items-center justify-center text-brand-cyan text-xl mb-4 group-hover:scale-110 transition">
                     <i class="fa-solid fa-graduation-cap"></i>
@@ -108,7 +100,6 @@
                 </p>
             </div>
 
-            <!-- Service 4 -->
             <div class="bg-brand-card border border-slate-800 hover:border-brand-purple/50 p-6 rounded-2xl transition shadow-lg group">
                 <div class="w-12 h-12 bg-brand-purple/10 border border-brand-purple/20 rounded-xl flex items-center justify-center text-brand-purple text-xl mb-4 group-hover:scale-110 transition">
                     <i class="fa-solid fa-bolt"></i>
@@ -121,8 +112,7 @@
 
         </div>
 
-        <!-- Handwritten Notes Feature Box -->
-        <div class="mt-8 bg-brand-card/60 border border-brand-purple/30 p-6 rounded-2xl flex items-start gap-4 shadow-lg">
+        <div class="bg-brand-card/60 border border-brand-purple/30 p-6 rounded-2xl flex items-start gap-4 shadow-lg mb-10">
             <div class="w-10 h-10 bg-brand-purple/20 text-brand-purple rounded-lg flex items-center justify-center shrink-0 mt-1">
                 <i class="fa-solid fa-note-sticky text-lg"></i>
             </div>
@@ -133,47 +123,18 @@
                 </p>
             </div>
         </div>
-    </section>
 
-    <!-- Interactive Terminal Widget -->
-    <section class="max-w-3xl mx-auto px-6 w-full mb-8">
-        <div class="bg-[#0D1117] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl font-mono text-xs md:text-sm">
-            <!-- Terminal Header -->
-            <div class="bg-brand-card/80 px-4 py-3 flex items-center justify-between border-b border-slate-800">
-                <div class="flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-                    <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
-                </div>
-                <div class="text-slate-400 text-xs font-semibold flex items-center gap-2">
-                    <i class="fa-solid fa-terminal text-brand-cyan"></i> apexnz@services:~
-                </div>
-                <div class="w-12"></div>
-            </div>
-
-            <!-- Terminal Output Area -->
-            <div id="terminal-body" class="p-4 md:p-6 h-64 overflow-y-auto space-y-3 text-slate-300">
-                <div>
-                    <span class="text-brand-cyan">guest@apexnz</span>:<span class="text-brand-purple">~</span>$ help<br>
-                    <span class="text-slate-400">Welcome to ApexOS v1.0 CLI. Available commands:</span><br>
-                    <span class="text-slate-200">  services    </span> - List available tech support offerings<br>
-                    <span class="text-slate-200">  about       </span> - Learn more about ApexNZ<br>
-                    <span class="text-slate-200">  projects    </span> - List featured repositories<br>
-                    <span class="text-slate-200">  whoami      </span> - Check current session user<br>
-                    <span class="text-slate-200">  clear       </span> - Clear terminal buffer
-                </div>
-            </div>
-
-            <!-- Terminal Input Row -->
-            <form id="terminal-form" class="p-4 bg-black/40 border-t border-slate-800 flex items-center gap-2">
-                <span class="text-brand-cyan font-bold">guest@apexnz</span>
-                <span class="text-brand-purple font-bold">:~$</span>
-                <input type="text" id="terminal-input" class="bg-transparent border-none outline-none text-slate-100 flex-1 font-mono text-xs md:text-sm focus:ring-0" placeholder="type 'services' or 'help'..." autocomplete="off" spellcheck="false" autofocus>
-            </form>
+        <div class="bg-gradient-to-r from-brand-card to-brand-dark border border-slate-700 p-8 rounded-2xl text-center shadow-xl">
+            <h3 class="text-2xl font-black mb-2 text-slate-100">Need Help With Your Tech?</h3>
+            <p class="text-slate-400 text-sm mb-6 max-w-lg mx-auto">
+                Send me an email explaining what you need help with, and I'll get back to you as soon as possible!
+            </p>
+            <a href="mailto:lewisgunn.nz@gmail.com?subject=Tech%20Support%20Inquiry%20-%20Apex%20Techsperts" class="inline-flex items-center gap-3 bg-gradient-to-r from-brand-cyan to-brand-purple hover:opacity-95 text-white font-bold px-8 py-4 rounded-xl transition shadow-lg shadow-brand-purple/20 group">
+                <i class="fa-solid fa-envelope text-lg group-hover:scale-110 transition"></i> Contact Me via Email
+            </a>
         </div>
     </section>
 
-    <!-- Global Total Visitor Counter -->
     <div class="flex justify-center items-center my-4">
         <div class="bg-brand-card/80 border border-slate-800 px-4 py-2 rounded-xl flex items-center gap-3 shadow-lg">
             <i class="fa-solid fa-eye text-brand-cyan text-sm"></i>
@@ -182,7 +143,6 @@
         </div>
     </div>
 
-    <!-- Links & Socials -->
     <section class="max-w-4xl mx-auto text-center py-6 px-6">
         <h2 class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-6">Connect With Me</h2>
         <div class="flex justify-center items-center gap-6 text-slate-400 text-2xl">
@@ -192,73 +152,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="border-t border-slate-800/60 py-8 text-center text-slate-500 text-sm">
         <p>&copy; ApexNZ. Hosted on GitHub Pages.</p>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // Interactive Terminal
-        const form = document.getElementById('terminal-form');
-        const input = document.getElementById('terminal-input');
-        const body = document.getElementById('terminal-body');
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const cmd = input.value.trim().toLowerCase();
-            if (!cmd) return;
-
-            const promptLine = document.createElement('div');
-            promptLine.innerHTML = `<span class="text-brand-cyan">guest@apexnz</span>:<span class="text-brand-purple">~</span>$ ${escapeHtml(cmd)}`;
-            body.appendChild(promptLine);
-
-            const response = document.createElement('div');
-            response.className = 'text-slate-400 mb-2';
-
-            switch (cmd) {
-                case 'help':
-                    response.innerHTML = `Available commands:<br>` +
-                        `<span class="text-slate-200">  services    </span> - List available tech support offerings<br>` +
-                        `<span class="text-slate-200">  about       </span> - Learn more about ApexNZ<br>` +
-                        `<span class="text-slate-200">  projects    </span> - List featured repositories<br>` +
-                        `<span class="text-slate-200">  whoami      </span> - Check current session user<br>` +
-                        `<span class="text-slate-200">  clear       </span> - Clear terminal buffer`;
-                    break;
-                case 'services':
-                    response.innerHTML = `[+] Printer & Device Setup<br>` +
-                        `[+] Scam & Pop-up Cleanup<br>` +
-                        `[+] 1-on-1 Patient Lessons<br>` +
-                        `[+] PC Speed-ups & File Backups`;
-                    break;
-                case 'about':
-                    response.innerHTML = `ApexNZ is a low-level systems developer building custom barebones OS kernels, retro Linux skins, and software tools.`;
-                    break;
-                case 'projects':
-                    response.innerHTML = `<span class="text-brand-purple font-bold">SkeletonOS:</span> Lightweight barebones OS kernel.<br>` +
-                        `<span class="text-brand-cyan font-bold">Linux98:</span> Retro late-90s desktop skin for Linux Mint.<br>` +
-                        `<a href="projects.html" class="text-brand-cyan underline">View all projects page -></a>`;
-                    break;
-                case 'whoami':
-                    response.innerHTML = `guest_user@apexnz-portfolio (Permissions: Read-Only)`;
-                    break;
-                case 'clear':
-                    body.innerHTML = '';
-                    input.value = '';
-                    return;
-                default:
-                    response.innerHTML = `<span class="text-red-400">Command not found: '${escapeHtml(cmd)}'. Type <span class="text-slate-200">'help'</span> for a list of commands.</span>`;
-            }
-
-            body.appendChild(response);
-            input.value = '';
-            body.scrollTop = body.scrollHeight;
-        });
-
-        function escapeHtml(text) {
-            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        }
-
         // Real-Time Global All-Time Hit Counter
         fetch('https://abacus.jasoncameron.dev/hit/apexnz-cmd.github.io/total_visits')
             .then(res => res.json())
@@ -268,78 +166,6 @@
             .catch(() => {
                 document.getElementById('global-visit-count').innerText = '1';
             });
-    </script>
-
-    <!-- Matrix Rain Overlay Canvas -->
-    <canvas id="matrixCanvas" class="fixed inset-0 pointer-events-none z-50 hidden"></canvas>
-
-    <script>
-      // Matrix Rain Easter Egg
-      const canvas = document.getElementById('matrixCanvas');
-      const ctx = canvas.getContext('2d');
-
-      let matrixInterval = null;
-
-      function startMatrix() {
-        canvas.classList.remove('hidden');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&*';
-        const fontSize = 14;
-        const columns = Math.floor(canvas.width / fontSize);
-        const rainDrops = Array(columns).fill(1);
-
-        function draw() {
-          ctx.fillStyle = 'rgba(11, 15, 23, 0.08)';
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-          ctx.fillStyle = '#06B6D4';
-          ctx.font = fontSize + 'px monospace';
-
-          for (let i = 0; i < rainDrops.length; i++) {
-            const text = chars.charAt(Math.floor(Math.random() * chars.length));
-            ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-
-            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-              rainDrops[i] = 0;
-            }
-            rainDrops[i]++;
-          }
-        }
-
-        if (matrixInterval) clearInterval(matrixInterval);
-        matrixInterval = setInterval(draw, 30);
-      }
-
-      function stopMatrix() {
-        if (matrixInterval) clearInterval(matrixInterval);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        canvas.classList.add('hidden');
-      }
-
-      const termInput = document.getElementById('terminal-input');
-      if (termInput) {
-        termInput.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') {
-            const cmd = termInput.value.trim().toLowerCase();
-            
-            if (cmd === 'matrix') {
-              startMatrix();
-              window.addEventListener('keydown', function handleEscape(ev) {
-                if (ev.key === 'Escape') {
-                  stopMatrix();
-                  window.removeEventListener('keydown', handleEscape);
-                }
-              });
-              window.addEventListener('click', function handleClick() {
-                stopMatrix();
-                window.removeEventListener('click', handleClick);
-              });
-            }
-          }
-        });
-      }
     </script>
 </body>
 </html>
