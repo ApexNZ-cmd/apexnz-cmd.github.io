@@ -1,112 +1,345 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services - Apex Techsperts</title>
-  <style>
-    :root {
-      --bg-dark: #0f172a;
-      --card-bg: #1e293b;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --border-color: #334155;
-    }
+    <!-- Open Graph Social Embed Tags -->
+    <meta property="og:title" content="ApexNZ | Services & Local Tech Support">
+    <meta property="og:description" content="Official tech support and services page for Apex Techsperts & ApexNZ.">
+    <meta property="og:image" content="https://apexnz-cmd.github.io/favicon_apexnz.png">
+    <meta property="og:url" content="https://apexnz-cmd.github.io/services.html">
+    <meta name="theme-color" content="#7C3AED">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexNZ | Services</title>
+    <!-- Custom Favicon -->
+    <link rel="icon" type="image/png" href="favicon_apexnz.png">
+    <link rel="apple-touch-icon" href="favicon_apexnz.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#7C3AED',
+                            cyan: '#06B6D4',
+                            dark: '#0B0F17',
+                            card: '#161F30'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-brand-purple selection:text-white min-h-screen flex flex-col justify-between">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <!-- Navigation -->
+    <nav class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center w-full">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <img src="favicon_apexnz.png" alt="ApexNZ Logo" class="w-8 h-8 rounded-lg group-hover:scale-105 transition">
+            <span class="text-2xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-purple">
+                ApexNZ
+            </span>
+        </a>
+        <div class="flex items-center gap-4 text-sm font-medium text-slate-400">
+            <a href="index.html" class="hover:text-white transition">Home</a>
+            <a href="about.html" class="hover:text-white transition">About</a>
+            <a href="services.html" class="text-white font-semibold transition">Services</a>
+            <a href="projects.html" class="hover:text-white transition">Projects</a>
+            <a href="https://github.com/ApexNZ-cmd" target="_blank" class="hover:text-white transition">GitHub</a>
+            <a href="https://discord.gg/UrdfAN2Ju" target="_blank" class="bg-brand-purple hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition flex items-center gap-2">
+                <i class="fa-brands fa-discord"></i> Discord
+            </a>
+        </div>
+    </nav>
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto text-center pt-12 pb-8 px-6">
+        <span class="text-brand-cyan text-sm font-semibold tracking-normal uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">Local Tech Support</span>
+        <h1 class="text-5xl md:text-6xl font-black mt-6 mb-4 tracking-tight">
+            Apex Techsperts <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-cyan">Services</span>
+        </h1>
+        <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
+            Friendly, patient, step-by-step tech assistance right in your local neighborhood.
+        </p>
+    </section>
 
-    /* Top Navigation Header */
-    header {
-      background-color: var(--card-bg);
-      border-bottom: 1px solid var(--border-color);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+    <!-- Services Grid Section -->
+    <section class="max-w-4xl mx-auto px-6 mb-12 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Service 1 -->
+            <div class="bg-brand-card border border-slate-800 hover:border-brand-purple/50 p-6 rounded-2xl transition shadow-lg group">
+                <div class="w-12 h-12 bg-brand-purple/10 border border-brand-purple/20 rounded-xl flex items-center justify-center text-brand-purple text-xl mb-4 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-print"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-slate-100">Printer & Device Setup</h3>
+                <p class="text-slate-400 text-sm">
+                    Connecting wireless printers, setting up home Wi-Fi networks, and configuring new phones, laptops, or tablets.
+                </p>
+            </div>
 
-    .brand {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-decoration: none;
-    }
+            <!-- Service 2 -->
+            <div class="bg-brand-card border border-slate-800 hover:border-brand-cyan/50 p-6 rounded-2xl transition shadow-lg group">
+                <div class="w-12 h-12 bg-brand-cyan/10 border border-brand-cyan/20 rounded-xl flex items-center justify-center text-brand-cyan text-xl mb-4 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-slate-100">Scam & Pop-up Cleanup</h3>
+                <p class="text-slate-400 text-sm">
+                    Clearing persistent pop-ups, installing lightweight ad-blockers, and keeping your accounts safe from online scams.
+                </p>
+            </div>
 
-    nav {
-      display: flex;
-      gap: 1.5rem;
-    }
+            <!-- Service 3 -->
+            <div class="bg-brand-card border border-slate-800 hover:border-brand-cyan/50 p-6 rounded-2xl transition shadow-lg group">
+                <div class="w-12 h-12 bg-brand-cyan/10 border border-brand-cyan/20 rounded-xl flex items-center justify-center text-brand-cyan text-xl mb-4 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-slate-100">1-on-1 Patient Lessons</h3>
+                <p class="text-slate-400 text-sm">
+                    Learn how to use video calls, photo management, email folders, or app navigation at your own comfortable pace.
+                </p>
+            </div>
 
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
+            <!-- Service 4 -->
+            <div class="bg-brand-card border border-slate-800 hover:border-brand-purple/50 p-6 rounded-2xl transition shadow-lg group">
+                <div class="w-12 h-12 bg-brand-purple/10 border border-brand-purple/20 rounded-xl flex items-center justify-center text-brand-purple text-xl mb-4 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-slate-100">PC Speed-ups & Fixes</h3>
+                <p class="text-slate-400 text-sm">
+                    Resolving slow system startups, recovering lost passwords, and organizing automatic backups for important memories.
+                </p>
+            </div>
 
-    nav a:hover, nav a.active {
-      color: var(--text-main);
-    }
+        </div>
 
-    /* Main Container */
-    .container {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-      flex: 1;
-    }
+        <!-- Handwritten Notes Feature Box -->
+        <div class="mt-8 bg-brand-card/60 border border-brand-purple/30 p-6 rounded-2xl flex items-start gap-4 shadow-lg">
+            <div class="w-10 h-10 bg-brand-purple/20 text-brand-purple rounded-lg flex items-center justify-center shrink-0 mt-1">
+                <i class="fa-solid fa-note-sticky text-lg"></i>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold text-slate-100">Handwritten Notes Included</h4>
+                <p class="text-slate-400 text-sm mt-1">
+                    Every session ends with simple step-by-step notes written on paper, so you always have a clear reference guide to look back on!
+                </p>
+            </div>
+        </div>
+    </section>
 
-    /* Page Banner */
-    .page-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+    <!-- Interactive Terminal Widget -->
+    <section class="max-w-3xl mx-auto px-6 w-full mb-8">
+        <div class="bg-[#0D1117] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl font-mono text-xs md:text-sm">
+            <!-- Terminal Header -->
+            <div class="bg-brand-card/80 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                </div>
+                <div class="text-slate-400 text-xs font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-terminal text-brand-cyan"></i> apexnz@services:~
+                </div>
+                <div class="w-12"></div>
+            </div>
 
-    .page-header h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 0.75rem;
-      color: var(--text-main);
-    }
+            <!-- Terminal Output Area -->
+            <div id="terminal-body" class="p-4 md:p-6 h-64 overflow-y-auto space-y-3 text-slate-300">
+                <div>
+                    <span class="text-brand-cyan">guest@apexnz</span>:<span class="text-brand-purple">~</span>$ help<br>
+                    <span class="text-slate-400">Welcome to ApexOS v1.0 CLI. Available commands:</span><br>
+                    <span class="text-slate-200">  services    </span> - List available tech support offerings<br>
+                    <span class="text-slate-200">  about       </span> - Learn more about ApexNZ<br>
+                    <span class="text-slate-200">  projects    </span> - List featured repositories<br>
+                    <span class="text-slate-200">  whoami      </span> - Check current session user<br>
+                    <span class="text-slate-200">  clear       </span> - Clear terminal buffer
+                </div>
+            </div>
 
-    .page-header p {
-      color: var(--text-muted);
-      font-size: 1.125rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+            <!-- Terminal Input Row -->
+            <form id="terminal-form" class="p-4 bg-black/40 border-t border-slate-800 flex items-center gap-2">
+                <span class="text-brand-cyan font-bold">guest@apexnz</span>
+                <span class="text-brand-purple font-bold">:~$</span>
+                <input type="text" id="terminal-input" class="bg-transparent border-none outline-none text-slate-100 flex-1 font-mono text-xs md:text-sm focus:ring-0" placeholder="type 'services' or 'help'..." autocomplete="off" spellcheck="false" autofocus>
+            </form>
+        </div>
+    </section>
 
-    /* Grid Layout */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
+    <!-- Global Total Visitor Counter -->
+    <div class="flex justify-center items-center my-4">
+        <div class="bg-brand-card/80 border border-slate-800 px-4 py-2 rounded-xl flex items-center gap-3 shadow-lg">
+            <i class="fa-solid fa-eye text-brand-cyan text-sm"></i>
+            <span class="text-xs text-slate-400 font-mono">Total Site Visits:</span>
+            <span id="global-visit-count" class="text-xs font-mono font-bold text-brand-purple bg-brand-purple/10 border border-brand-purple/30 px-2 py-0.5 rounded">Loading...</span>
+        </div>
+    </div>
 
-    .service-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.75rem;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+    <!-- Links & Socials -->
+    <section class="max-w-4xl mx-auto text-center py-6 px-6">
+        <h2 class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-6">Connect With Me</h2>
+        <div class="flex justify-center items-center gap-6 text-slate-400 text-2xl">
+            <a href="https://discord.gg/UrdfAN2Ju" target="_blank" class="hover:text-brand-purple transition" title="Discord"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://github.com/ApexNZ-cmd" target="_blank" class="hover:text-white transition" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.youtube.com/@apexnz-cmd" target="_blank" class="hover:text-red-500 transition" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/60 py-8 text-center text-slate-500 text-sm">
+        <p>&copy; ApexNZ. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Interactive Terminal
+        const form = document.getElementById('terminal-form');
+        const input = document.getElementById('terminal-input');
+        const body = document.getElementById('terminal-body');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const cmd = input.value.trim().toLowerCase();
+            if (!cmd) return;
+
+            const promptLine = document.createElement('div');
+            promptLine.innerHTML = `<span class="text-brand-cyan">guest@apexnz</span>:<span class="text-brand-purple">~</span>$ ${escapeHtml(cmd)}`;
+            body.appendChild(promptLine);
+
+            const response = document.createElement('div');
+            response.className = 'text-slate-400 mb-2';
+
+            switch (cmd) {
+                case 'help':
+                    response.innerHTML = `Available commands:<br>` +
+                        `<span class="text-slate-200">  services    </span> - List available tech support offerings<br>` +
+                        `<span class="text-slate-200">  about       </span> - Learn more about ApexNZ<br>` +
+                        `<span class="text-slate-200">  projects    </span> - List featured repositories<br>` +
+                        `<span class="text-slate-200">  whoami      </span> - Check current session user<br>` +
+                        `<span class="text-slate-200">  clear       </span> - Clear terminal buffer`;
+                    break;
+                case 'services':
+                    response.innerHTML = `[+] Printer & Device Setup<br>` +
+                        `[+] Scam & Pop-up Cleanup<br>` +
+                        `[+] 1-on-1 Patient Lessons<br>` +
+                        `[+] PC Speed-ups & File Backups`;
+                    break;
+                case 'about':
+                    response.innerHTML = `ApexNZ is a low-level systems developer building custom barebones OS kernels, retro Linux skins, and software tools.`;
+                    break;
+                case 'projects':
+                    response.innerHTML = `<span class="text-brand-purple font-bold">SkeletonOS:</span> Lightweight barebones OS kernel.<br>` +
+                        `<span class="text-brand-cyan font-bold">Linux98:</span> Retro late-90s desktop skin for Linux Mint.<br>` +
+                        `<a href="projects.html" class="text-brand-cyan underline">View all projects page -></a>`;
+                    break;
+                case 'whoami':
+                    response.innerHTML = `guest_user@apexnz-portfolio (Permissions: Read-Only)`;
+                    break;
+                case 'clear':
+                    body.innerHTML = '';
+                    input.value = '';
+                    return;
+                default:
+                    response.innerHTML = `<span class="text-red-400">Command not found: '${escapeHtml(cmd)}'. Type <span class="text-slate-200">'help'</span> for a list of commands.</span>`;
+            }
+
+            body.appendChild(response);
+            input.value = '';
+            body.scrollTop = body.scrollHeight;
+        });
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        // Real-Time Global All-Time Hit Counter
+        fetch('https://abacus.jasoncameron.dev/hit/apexnz-cmd.github.io/total_visits')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('global-visit-count').innerText = data.value;
+            })
+            .catch(() => {
+                document.getElementById('global-visit-count').innerText = '1';
+            });
+    </script>
+
+    <!-- Matrix Rain Overlay Canvas -->
+    <canvas id="matrixCanvas" class="fixed inset-0 pointer-events-none z-50 hidden"></canvas>
+
+    <script>
+      // Matrix Rain Easter Egg
+      const canvas = document.getElementById('matrixCanvas');
+      const ctx = canvas.getContext('2d');
+
+      let matrixInterval = null;
+
+      function startMatrix() {
+        canvas.classList.remove('hidden');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&*';
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const rainDrops = Array(columns).fill(1);
+
+        function draw() {
+          ctx.fillStyle = 'rgba(11, 15, 23, 0.08)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          ctx.fillStyle = '#06B6D4';
+          ctx.font = fontSize + 'px monospace';
+
+          for (let i = 0; i < rainDrops.length; i++) {
+            const text = chars.charAt(Math.floor(Math.random() * chars.length));
+            ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+              rainDrops[i] = 0;
+            }
+            rainDrops[i]++;
+          }
+        }
+
+        if (matrixInterval) clearInterval(matrixInterval);
+        matrixInterval = setInterval(draw, 30);
+      }
+
+      function stopMatrix() {
+        if (matrixInterval) clearInterval(matrixInterval);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.classList.add('hidden');
+      }
+
+      const termInput = document.getElementById('terminal-input');
+      if (termInput) {
+        termInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            const cmd = termInput.value.trim().toLowerCase();
+            
+            if (cmd === 'matrix') {
+              startMatrix();
+              window.addEventListener('keydown', function handleEscape(ev) {
+                if (ev.key === 'Escape') {
+                  stopMatrix();
+                  window.removeEventListener('keydown', handleEscape);
+                }
+              });
+              window.addEventListener('click', function handleClick() {
+                stopMatrix();
+                window.removeEventListener('click', handleClick);
+              });
+            }
+          }
+        });
+      }
+    </script>
+</body>
+</html>
