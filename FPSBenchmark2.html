@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epilepsy-Safe Concentric Ring Benchmark</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #0d1117;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #c9d1d9;
+    }
+    #ui {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(22, 27, 34, 0.9);
+      padding: 16px 24px;
+      border-radius: 8px;
+      border: 1px solid #30363d;
+      backdrop-filter: blur(4px);
+    }
+    .metric {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #58a6ff;
+    }
+    .submetric {
+      font-size: 0.9rem;
+      color: #8b949e;
+      margin-top: 4px;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="ui">
+    <div>Uncapped FPS: <span id="fpsDisplay" class="metric">0</span></div>
+    <div class="submetric">Rings Rendered / sec: <span id="opsDisplay">0</span></div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const fpsDisplay = document.getElementById('fpsDisplay');
+    const opsDisplay = document.getElementById('opsDisplay');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // Configuration
+    const RINGS_PER_PASS = 150; // Ring layers drawn per synthetic frame
+    const BATCH_TIME_MS = 16;    // Target execution window per frame (~60Hz sync)
+
+    let totalFrames = 0;
+    let totalOps = 0;
+    let lastReportTime = performance.now();
+    let angleOffset = 0;
+
+    function renderPass() {
+      const w = canvas.width;
+      const h = canvas.height;
+      const centerX = w / 2;
+      const centerY = h / 2;
+
+      // Soft trail background to eliminate harsh screen clearing flashes
+      ctx.fillStyle = 'rgba(13, 17, 23, 0.2)';
+      ctx.fillRect(0, 0, w, h);
+
+      // Low-contrast concentric rings ("onion rings")
+      angleOffset += 0.005;
+
+      for (let i = 0; i < RINGS_PER_PASS; i++) {
+        const radius = (i * 8 + (angleOffset * 20)) % (Math.max(w, h) / 2);
+        
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        ctx.lineWidth = 3;
+        
+        // Soft matte blue/teal color palette - no flickering bright whites
+        ctx.strokeStyle = `rgba(56, 189, 248, 0.15)`;
+        ctx.stroke();
+      }
+    }
+
+    function benchmarkLoop() {
+      const frameStart = performance.now();
+
+      // Loop rendering passes inside frame allocation budget
+      while (performance.now() - frameStart < BATCH_TIME_MS) {
+        renderPass();
+        totalFrames++;
+        totalOps += RINGS_PER_PASS;
+      }
+
+      // Metric calculations
+      const now = performance.now();
+      const elapsed = now - lastReportTime;
+
+      if (elapsed >= 1000) {
+        const calculatedFps = Math.round((totalFrames * 1000) / elapsed);
+        const calculatedOps = Math.round((totalOps * 1000) / elapsed);
+
+        fpsDisplay.textContent = calculatedFps.toLocaleString();
+        opsDisplay.textContent = calculatedOps.toLocaleString();
+
+        totalFrames = 0;
+        totalOps = 0;
+        lastReportTime = now;
+      }
+
+      requestAnimationFrame(benchmarkLoop);
+    }
+
+    requestAnimationFrame(benchmarkLoop);
+  </script>
+</body>
+</html>

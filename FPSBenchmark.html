@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unlimited FPS Canvas Benchmark</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #0f172a;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #f8fafc;
+    }
+    #ui {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(15, 23, 42, 0.85);
+      padding: 16px 24px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    }
+    .metric {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .submetric {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="ui">
+    <div>Uncapped FPS: <span id="fpsDisplay" class="metric">0</span></div>
+    <div class="submetric">Total Operations: <span id="opsDisplay">0</span> / sec</div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const fpsDisplay = document.getElementById('fpsDisplay');
+    const opsDisplay = document.getElementById('opsDisplay');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // Configuration
+    const WORKLOAD_PER_PASS = 200; // Number of particles drawn per synthetic frame
+    const BATCH_TIME_MS = 16;      // Target execution time per browser frame slot (~60Hz sync)
+
+    let totalFrames = 0;
+    let totalOps = 0;
+    let lastReportTime = performance.now();
+
+    function renderPass() {
+      const w = canvas.width;
+      const h = canvas.height;
+
+      // Simple rendering workload
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.1)';
+      ctx.fillRect(0, 0, w, h);
+
+      for (let i = 0; i < WORKLOAD_PER_PASS; i++) {
+        const x = Math.random() * w;
+        const y = Math.random() * h;
+        const radius = Math.random() * 20 + 5;
+
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = `hsl(${(x + y) % 360}, 70%, 60%)`;
+        ctx.fill();
+      }
+    }
+
+    function benchmarkLoop() {
+      const frameStart = performance.now();
+
+      // Execute as many rendering iterations as possible within the allocated frame budget
+      while (performance.now() - frameStart < BATCH_TIME_MS) {
+        renderPass();
+        totalFrames++;
+        totalOps += WORKLOAD_PER_PASS;
+      }
+
+      // Update metrics every second
+      const now = performance.now();
+      const elapsed = now - lastReportTime;
+
+      if (elapsed >= 1000) {
+        const calculatedFps = Math.round((totalFrames * 1000) / elapsed);
+        const calculatedOps = Math.round((totalOps * 1000) / elapsed);
+
+        fpsDisplay.textContent = calculatedFps.toLocaleString();
+        opsDisplay.textContent = calculatedOps.toLocaleString();
+
+        totalFrames = 0;
+        totalOps = 0;
+        lastReportTime = now;
+      }
+
+      requestAnimationFrame(benchmarkLoop);
+    }
+
+    // Start benchmark
+    requestAnimationFrame(benchmarkLoop);
+  </script>
+</body>
+</html>
