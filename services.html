@@ -131,7 +131,52 @@
             <a href="mailto:lewisgunn.nz@gmail.com?subject=Tech%20Support%20Inquiry%20-%20Apex%20Techsperts" class="inline-flex items-center gap-3 bg-gradient-to-r from-brand-cyan to-brand-purple hover:opacity-95 text-white font-bold px-8 py-4 rounded-xl transition shadow-lg shadow-brand-purple/20 group">
                 <i class="fa-solid fa-envelope text-lg group-hover:scale-110 transition"></i> Contact Me via Email
             </a>
+        <div class="mb-12">
+            <h3 class="text-2xl font-black text-center mb-6 text-slate-100">Frequently Asked Questions</h3>
+            <div class="space-y-4 max-w-3xl mx-auto">
+                
+                <div class="bg-brand-card border border-slate-800 rounded-xl overflow-hidden shadow-lg">
+                    <button onclick="toggleFaq('faq1')" class="w-full text-left p-5 font-bold text-slate-200 flex justify-between items-center hover:bg-slate-800/40 transition">
+                        <span>How much do your services cost?</span>
+                        <i id="faq1-icon" class="fa-solid fa-chevron-down text-brand-cyan transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq1" class="hidden p-5 pt-0 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50">
+                        Rates are affordable and flexible based on the task! Feel free to send an email explaining what you need help with, and I'll give you an estimate beforehand.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-slate-800 rounded-xl overflow-hidden shadow-lg">
+                    <button onclick="toggleFaq('faq2')" class="w-full text-left p-5 font-bold text-slate-200 flex justify-between items-center hover:bg-slate-800/40 transition">
+                        <span>What if you can't fix my tech problem?</span>
+                        <i id="faq2-icon" class="fa-solid fa-chevron-down text-brand-cyan transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq2" class="hidden p-5 pt-0 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50">
+                        If I'm unable to resolve the issue or if it requires specialized hardware repair, you won't be charged anything for the diagnosis.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-slate-800 rounded-xl overflow-hidden shadow-lg">
+                    <button onclick="toggleFaq('faq3')" class="w-full text-left p-5 font-bold text-slate-200 flex justify-between items-center hover:bg-slate-800/40 transition">
+                        <span>Do you offer in-person or remote support?</span>
+                        <i id="faq3-icon" class="fa-solid fa-chevron-down text-brand-cyan transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq3" class="hidden p-5 pt-0 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50">
+                        I offer local in-person help for setup and repairs, as well as step-by-step guidance over email or chat for quick software fixes!
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+        <script>
+            function toggleFaq(id) {
+                const content = document.getElementById(id);
+                const icon = document.getElementById(id + '-icon');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            }
+        </script>
     </section>
 
     <div class="flex justify-center items-center my-4">
