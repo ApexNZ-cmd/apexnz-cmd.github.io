@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LewisTech | Tech Reviews & Gadgets</title>
-    <!-- Google Fonts for modern typography -->
+    <title>LewisTech | Retro & Modern Tech Reviews</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -173,11 +173,6 @@
             transition: border-color 0.2s, background 0.2s;
         }
 
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.03);
-        }
-
         .hero-visual {
             width: 450px;
             height: 450px;
@@ -194,7 +189,7 @@
         .hero-visual i {
             font-size: 8rem;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
+            -webkit-background-clip: tech;
             -webkit-text-fill-color: transparent;
             animation: float 4s ease-in-out infinite;
         }
@@ -204,37 +199,7 @@
             50% { transform: translateY(-15px); }
         }
 
-        /* Stats Bar */
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            padding: 3rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 2rem;
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .stat-card h3 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-card p {
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        /* Featured Content Section */
+        /* Gear Showcase Section */
         .section {
             padding: 6rem 5%;
             max-width: 1300px;
@@ -257,63 +222,39 @@
             font-size: 1.1rem;
         }
 
-        .video-grid {
+        .gear-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
-        .video-card {
+        .gear-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            overflow: hidden;
+            padding: 2rem;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .video-card:hover {
+        .gear-card:hover {
             transform: translateY(-5px);
             border-color: rgba(0, 242, 254, 0.4);
         }
 
-        .video-thumbnail {
-            height: 200px;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .video-thumbnail i {
-            font-size: 3rem;
+        .gear-card i {
+            font-size: 2.5rem;
             color: var(--primary);
-            opacity: 0.8;
+            margin-bottom: 1rem;
         }
 
-        .video-info {
-            padding: 1.5rem;
+        .gear-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
         }
 
-        .video-info h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .video-info p {
+        .gear-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .watch-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
         }
 
         /* About Section */
@@ -339,25 +280,6 @@
             font-size: 1.15rem;
             line-height: 1.8;
             margin-bottom: 2.5rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tech-badge {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         /* Footer */
@@ -386,7 +308,6 @@
             color: var(--primary);
         }
 
-        /* Responsive Design */
         @media (max-width: 968px) {
             .hero {
                 flex-direction: column;
@@ -421,8 +342,8 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#videos">Latest Videos</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#gear">My Tech Locker</a></li>
+                <li><a href="#about">About Me</a></li>
             </ul>
         </nav>
         <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="sub-btn">
@@ -433,71 +354,60 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="badge">🚀 Tech Reviews & Deep Dives</div>
+            <div class="badge">🎮 Retro & Modern Tech Reviewer</div>
             <h1>Welcome to <span>LewisTech</span></h1>
-            <p>Your ultimate destination for cutting-edge gadget reviews, software tutorials, and deep dives into the latest technology trends.</p>
+            <p>Hey! I'm Lewis, a 13-year-old creator exploring the gap between vintage classics and modern everyday tech. Welcome to my channel locker!</p>
             <div class="hero-buttons">
-                <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="btn-primary">Explore Channel</a>
-                <a href="#videos" class="btn-secondary">Featured Reviews</a>
+                <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="btn-primary">Visit Channel</a>
+                <a href="#gear" class="btn-secondary">View My Tech</a>
             </div>
         </div>
         <div class="hero-visual">
-            <i class="fa-solid fa-laptop-code"></i>
+            <i class="fa-solid fa-gamepad"></i>
         </div>
     </section>
 
-    <!-- Stats Bar -->
-    <div class="stats-bar">
-        <div class="stat-card">
-            <h3>HD</h3>
-            <p>Quality Reviews</p>
-        </div>
-        <div class="stat-card">
-            <h3>100%</h3>
-            <p>Unbiased Tech</p>
-        </div>
-        <div class="stat-card">
-            <h3>Weekly</h3>
-            <p>New Uploads</p>
-        </div>
-    </div>
-
-    <!-- Featured Videos Section -->
-    <section class="section" id="videos">
+    <!-- Gear Showcase Section -->
+    <section class="section" id="gear">
         <div class="section-title">
-            <h2>Featured Content</h2>
-            <p>Check out some of the most popular reviews and tutorials on the channel.</p>
+            <h2>The Tech Locker</h2>
+            <p>Here is the hardware I test, tinker with, and review on the channel.</p>
         </div>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-                <div class="video-info">
-                    <h3>Ultimate Smartphone Review</h3>
-                    <p>Put to the test: Performance, camera quality, battery benchmarks, and long-term usability.</p>
-                    <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="watch-link">Watch on YouTube <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
+        <div class="gear-grid">
+            <div class="gear-card">
+                <i class="fa-solid fa-gamepad"></i>
+                <h3>PlayStation 4</h3>
+                <p>Still an absolute powerhouse for classic console gaming and testing older blockbuster titles.</p>
             </div>
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-                <div class="video-info">
-                    <h3>PC Build Guide & Benchmarks</h3>
-                    <p>Building a high-end powerhouse rig for gaming, video editing, and heavy multitasking.</p>
-                    <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="watch-link">Watch on YouTube <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
+            <div class="gear-card">
+                <i class="fa-solid fa-laptop"></i>
+                <h3>2011 MacBook Pro</h3>
+                <p>Vintage Apple hardware. Testing how a 2011 machine handles daily tasks today.</p>
             </div>
-            <div class="video-card">
-                <div class="video-thumbnail">
-                    <i class="fa-solid fa-play"></i>
-                </div>
-                <div class="video-info">
-                    <h3>Must-Have Tech Gadgets</h3>
-                    <p>Exploring underrated accessories and everyday carry tech that actually make life easier.</p>
-                    <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="watch-link">Watch on YouTube <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
+            <div class="gear-card">
+                <i class="fa-solid fa-tv"></i>
+                <h3>Apple TV (4th Gen)</h3>
+                <p>Bringing smart streaming capabilities and old tvOS testing to the big screen.</p>
+            </div>
+            <div class="gear-card">
+                <i class="fa-solid fa-tablet-screen-button"></i>
+                <h3>iPad 4 (Jailbroken)</h3>
+                <p>An older tablet experiment running custom tweaks and legacy apps.</p>
+            </div>
+            <div class="gear-card">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h3>Dell Latitude 7400</h3>
+                <p>A reliable daily driver laptop used for productivity, editing, and schoolwork.</p>
+            </div>
+            <div class="gear-card">
+                <i class="fa-solid fa-dice-d6"></i>
+                <h3>Nintendo Switch Lite</h3>
+                <p>Portable handheld gaming on the go for indie games and Nintendo classics.</p>
+            </div>
+            <div class="gear-card">
+                <i class="fa-solid fa-compact-disc"></i>
+                <h3>2006 iPod</h3>
+                <p>Pure retro music nostalgia. Click-wheel architecture from a different era of tech!</p>
             </div>
         </div>
     </section>
@@ -506,13 +416,7 @@
     <section class="section about" id="about">
         <div class="about-container">
             <h2>About LewisTech</h2>
-            <p>LewisTech is dedicated to cutting through the marketing hype and bringing you honest, in-depth breakdowns of the tech that matters. Whether you're upgrading your workspace, looking for the best smartphone, or wanting to learn more about emerging hardware, you're in the right place.</p>
-            <div class="tech-stack">
-                <div class="tech-badge"><i class="fa-solid fa-mobile-screen"></i> Smartphones</div>
-                <div class="tech-badge"><i class="fa-solid fa-desktop"></i> PC Hardware</div>
-                <div class="tech-badge"><i class="fa-solid fa-headphones"></i> Audio & Gear</div>
-                <div class="tech-badge"><i class="fa-solid fa-code"></i> Software & Tools</div>
-            </div>
+            <p>I've always loved taking things apart, seeing how they work, and comparing vintage gadgets to what we have today. Whether it's an iPod from 2006 or a gaming console, LewisTech is all about keeping cool hardware alive and testing it out!</p>
         </div>
     </section>
 
@@ -520,9 +424,6 @@
     <footer>
         <div class="social-icons">
             <a href="https://www.youtube.com/@LewisTech1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" target="_blank"><i class="fa-brands fa-discord"></i></a>
         </div>
         <p>&copy; 2026 LewisTech. All rights reserved.</p>
     </footer>
