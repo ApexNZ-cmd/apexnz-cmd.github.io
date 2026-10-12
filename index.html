@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LewisTech | Retro & Modern Tech Reviews</title>
+    <title>LewisTech | Retro & Modern Tech</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -14,17 +16,24 @@
             --primary: #00f2fe;
             --secondary: #4facfe;
             --accent: #ff0055;
-            --bg-dark: #0b0f19;
+            --bg-dark: #0a0e17;
             --bg-card: #131b2e;
+            --bg-card-hover: #1c2842;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.1);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(0, 242, 254, 0.3);
+            --glass-bg: rgba(19, 27, 46, 0.7);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -33,40 +42,55 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 65%, rgba(255, 0, 85, 0.04) 0%, transparent 40%);
+            background-attachment: fixed;
         }
 
-        /* Header / Navbar */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
+            padding: 1.1rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 5%;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-main);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.5));
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.2rem;
             align-items: center;
         }
 
@@ -74,69 +98,89 @@
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
         }
 
         nav a:hover {
             color: var(--primary);
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .sub-btn {
             background: linear-gradient(135deg, var(--accent), #ff512f);
             color: white;
-            padding: 0.6rem 1.2rem;
+            padding: 0.6rem 1.3rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3);
+            gap: 0.6rem;
+            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.35);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .sub-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.5);
+            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.55);
         }
 
-        /* Hero Section */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         .hero {
-            padding: 10rem 5% 6rem;
-            min-height: 90vh;
+            padding: 10rem 6% 5rem;
+            min-height: 92vh;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
-            background: radial-gradient(circle at 80% 20%, rgba(79, 172, 254, 0.15) 0%, transparent 40%),
-                        radial-gradient(circle at 20% 80%, rgba(0, 242, 254, 0.1) 0%, transparent 40%);
+            gap: 4rem;
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
         .hero-content {
-            max-width: 600px;
+            flex: 1;
+            max-width: 650px;
         }
 
         .badge {
-            display: inline-block;
-            background: rgba(0, 242, 254, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 242, 254, 0.08);
             color: var(--primary);
             padding: 0.4rem 1rem;
-            border-radius: 20px;
+            border-radius: 30px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 242, 254, 0.2);
+            border: 1px solid rgba(0, 242, 254, 0.25);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+            font-size: 3.6rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            letter-spacing: -1px;
         }
 
         .hero h1 span {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary) 20%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -144,289 +188,835 @@
         .hero p {
             color: var(--text-muted);
             font-size: 1.15rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.2rem;
+            max-width: 550px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.85rem 1.8rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.25 ease;
+            cursor: pointer;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--bg-dark);
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: opacity 0.2s;
+            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 242, 254, 0.45);
         }
 
         .btn-secondary {
-            background: transparent;
+            background: var(--bg-card);
             color: var(--text-main);
             border: 1px solid var(--border-color);
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-highlight);
+            transform: translateY(-2px);
         }
 
         .hero-visual {
-            width: 450px;
-            height: 450px;
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.05));
-            border-radius: 30px;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-card {
+            width: 100%;
+            max-width: 420px;
+            background: var(--glass-bg);
             border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.3), transparent 60%);
+            z-index: -1;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            padding: 1px;
+        }
+
+        .gadget-icon-floating {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(79, 172, 254, 0.05));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .hero-visual i {
-            font-size: 8rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: tech;
-            -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+            color: var(--primary);
+            box-shadow: inset 0 0 20px rgba(0, 242, 254, 0.2);
             animation: float 4s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-12px); }
         }
 
-        /* Gear Showcase Section */
-        .section {
-            padding: 6rem 5%;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        .gear-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .gear-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .gear-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 242, 254, 0.4);
-        }
-
-        .gear-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .gear-card h3 {
-            font-size: 1.25rem;
+        .hero-card h3 {
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
         }
 
-        .gear-card p {
+        .hero-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
         }
 
-        /* About Section */
-        .about {
-            background: linear-gradient(to bottom, var(--bg-dark), var(--bg-card));
+        .section {
+            padding: 6rem 6%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--primary);
+            border-color: rgba(0, 242, 254, 0.4);
+        }
+
+        .locker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .tech-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-highlight);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            background: var(--bg-card-hover);
+        }
+
+        .tech-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .tech-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-retro { background: rgba(255, 0, 85, 0.15); color: #ff3377; border: 1px solid rgba(255, 0, 85, 0.3); }
+        .tag-console { background: rgba(79, 172, 254, 0.15); color: var(--secondary); border: 1px solid rgba(79, 172, 254, 0.3); }
+        .tag-daily { background: rgba(0, 242, 254, 0.15); color: var(--primary); border: 1px solid rgba(0, 242, 254, 0.3); }
+
+        .tech-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .tech-specs {
             border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .tech-specs span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .vault-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .video-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-highlight);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-thumb {
+            height: 180px;
+            background: linear-gradient(135deg, #131c31, #0a0f1d);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-bottom: 1px solid var(--border-color);
         }
 
-        .about-container {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
+        .video-thumb i.play-btn {
+            font-size: 3rem;
+            color: var(--primary);
+            transition: transform 0.2s ease, color 0.2s ease;
+            filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.4));
         }
 
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+        .video-card:hover .play-btn {
+            transform: scale(1.15);
+            color: #fff;
         }
 
-        .about p {
-            color: var(--text-muted);
+        .video-body {
+            padding: 1.5rem;
+        }
+
+        .video-body h3 {
             font-size: 1.15rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
         }
 
-        /* Footer */
-        footer {
-            background: var(--bg-dark);
-            padding: 3rem 5%;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
+        .video-body p {
             color: var(--text-muted);
+            font-size: 0.88rem;
+            margin-bottom: 1.2rem;
         }
 
-        .social-icons {
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .about-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 1.4rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .stat-box h4 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .stat-box p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+            margin-bottom: 0;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-highlight);
+            border-radius: var(--radius-lg);
+            max-width: 550px;
+            width: 100%;
+            padding: 2.5rem;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.2rem; right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .modal-close:hover { color: var(--text-main); }
+
+        .modal-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-box p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.98rem;
+        }
+
+        footer {
+            background: rgba(10, 14, 23, 0.95);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 6% 2rem;
+            text-align: center;
+        }
+
+        .footer-socials {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
             margin-bottom: 1.5rem;
         }
 
-        .social-icons a {
+        .footer-socials a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-size: 1.5rem;
-            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
 
-        .social-icons a:hover {
+        .footer-socials a:hover {
             color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
         }
 
-        @media (max-width: 968px) {
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .domain-tag {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 900px) {
             .hero {
                 flex-direction: column;
                 text-align: center;
                 padding-top: 8rem;
                 gap: 3rem;
             }
-            .hero-content {
-                max-width: 100%;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .hero-visual {
-                width: 100%;
-                max-width: 350px;
-                height: 350px;
-            }
+            .hero-p { margin: 0 auto 2.2rem; }
+            .hero-buttons { justify-content: center; }
+            .about-wrapper { grid-template-columns: 1fr; gap: 2rem; }
             nav ul {
+                position: fixed;
+                top: 70px; left: 0; width: 100%;
+                background: var(--bg-card);
+                border-bottom: 1px solid var(--border-color);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
                 display: none;
             }
+            nav ul.active { display: flex; }
+            .mobile-toggle { display: block; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <a href="#" class="logo">
-            <i class="fa-solid fa-microchip"></i> LewisTech
+            <i class="fa-solid fa-microchip"></i>
+            <span>LewisTech</span>
         </a>
         <nav>
-            <ul>
+            <ul id="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#gear">My Tech Locker</a></li>
-                <li><a href="#about">About Me</a></li>
+                <li><a href="#locker">Tech Locker</a></li>
+                <li><a href="#vault">Video Ideas</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
         </nav>
-        <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="sub-btn">
-            <i class="fa-brands fa-youtube"></i> Subscribe
-        </a>
+        <div class="nav-actions">
+            <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="sub-btn">
+                <i class="fa-brands fa-youtube"></i> Subscribe
+            </a>
+            <button class="mobile-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="badge">🎮 Retro & Modern Tech Reviewer</div>
-            <h1>Welcome to <span>LewisTech</span></h1>
-            <p>Hey! I'm Lewis, a 13-year-old creator exploring the gap between vintage classics and modern everyday tech. Welcome to my channel locker!</p>
+            <div class="badge">
+                <i class="fa-solid fa-location-dot"></i> New Zealand • 13-Year-Old Tech Creator
+            </div>
+            <h1>Retro Hardware. <span>Modern Experiments.</span></h1>
+            <p class="hero-p">Hey, I'm Lewis! Welcome to my official site. I explore, revive, and experiment with classic retro tech, custom jailbreaks, and modern gear on YouTube.</p>
             <div class="hero-buttons">
-                <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="btn-primary">Visit Channel</a>
-                <a href="#gear" class="btn-secondary">View My Tech</a>
+                <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-youtube"></i> Visit Channel
+                </a>
+                <a href="#locker" class="btn btn-secondary">
+                    <i class="fa-solid fa-boxes-stacked"></i> Explore Tech Locker
+                </a>
             </div>
         </div>
         <div class="hero-visual">
-            <i class="fa-solid fa-gamepad"></i>
+            <div class="hero-card">
+                <div class="gadget-icon-floating">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <h3>LewisTech Lab</h3>
+                <p>Testing legendary tech from 2006 to today. Powered by apexnz.me</p>
+            </div>
         </div>
     </section>
 
-    <!-- Gear Showcase Section -->
-    <section class="section" id="gear">
-        <div class="section-title">
+    <section class="section" id="locker">
+        <div class="section-header">
             <h2>The Tech Locker</h2>
-            <p>Here is the hardware I test, tinker with, and review on the channel.</p>
+            <p>Every piece of hardware in my personal collection that I review, tweak, and test on the channel.</p>
         </div>
-        <div class="gear-grid">
-            <div class="gear-card">
-                <i class="fa-solid fa-gamepad"></i>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All Tech</button>
+            <button class="filter-btn" data-filter="retro">Apple & Retro</button>
+            <button class="filter-btn" data-filter="console">Consoles</button>
+            <button class="filter-btn" data-filter="daily">Daily Drivers</button>
+        </div>
+
+        <div class="locker-grid">
+            <!-- 1. PS4 -->
+            <div class="tech-card" data-category="console">
+                <div class="tech-card-header">
+                    <div class="tech-icon"><i class="fa-brands fa-playstation"></i></div>
+                    <span class="tech-tag tag-console">Console</span>
+                </div>
                 <h3>PlayStation 4</h3>
-                <p>Still an absolute powerhouse for classic console gaming and testing older blockbuster titles.</p>
+                <p>The iconic 8th-gen console. Great for classic game benchmarks and testing how last-gen games run today.</p>
+                <div class="tech-specs">
+                    <span><i class="fa-solid fa-hard-drive"></i> Gaming</span>
+                    <span><i class="fa-solid fa-check"></i> Active</span>
+                </div>
             </div>
-            <div class="gear-card">
-                <i class="fa-solid fa-laptop"></i>
+
+            <!-- 2. 2011 MacBook Pro -->
+            <div class="tech-card" data-category="retro">
+                <div class="tech-card-header">
+                    <div class="tech-icon"><i class="fa-solid fa-laptop"></i></div>
+                    <span class="tech-tag tag-retro">Vintage Mac</span>
+                </div>
                 <h3>2011 MacBook Pro</h3>
-                <p>Vintage Apple hardware. Testing how a 2011 machine handles daily tasks today.</p>
+                <p>Unibody classic Apple hardware. Fun to upgrade, tinker with, and test old macOS builds.</p>
+                <div class="tech-specs">
+                    <span><i class="fa-solid fa-memory"></i> Retro Tech</span>
+                    <span><i class="fa-solid fa-wrench"></i> Tweaked</span>
+                </div>
             </div>
-            <div class="gear-card">
-                <i class="fa-solid fa-tv"></i>
+
+            <!-- 3. Apple TV 4th Gen -->
+            <div class="tech-card" data-category="retro">
+                <div class="tech-card-header">
+                    <div class="tech-icon"><i class="fa-solid fa-tv"></i></div>
+                    <span class="tech-tag tag-retro">Streaming</span>
+                </div>
                 <h3>Apple TV (4th Gen)</h3>
-                <p>Bringing smart streaming capabilities and old tvOS testing to the big screen.</p>
+                <p>The first Apple TV with tvOS and the App Store. Still handy for streaming and app experiments.</p>
+                <div class="tech-specs">
+                    <span><i class="fa-solid fa-wifi"></i> tvOS</span>
+                    <span><i class="fa-solid fa-check"></i> Working</span>
+                </div>
             </div>
-            <div class="gear-card">
-                <i class="fa-solid fa-tablet-screen-button"></i>
+
+            <!-- 4. iPad 4 (Jailbroken) -->
+            <div class="tech-card" data-category="retro">
+                <div class="tech-card-header">
+                    <div class="tech-icon"><i class="fa-solid fa-tablet-screen-button"></i></div>
+                    <span class="tech-tag tag-retro">Jailbroken</span>
+                </div>
                 <h3>iPad 4 (Jailbroken)</h3>
-                <p>An older tablet experiment running custom tweaks and legacy apps.</p>
+                <p>Legacy 32-bit iPad running iOS tweaks, classic retro emulators, and custom old-school software.</p>
+                <div class="tech-specs">
+                    <span><i class="fa-solid fa-unlock"></i> Cydia/Sileo</span>
+                    <span><i class="fa-solid fa-bolt"></i> Custom</span>
+                </div>
             </div>
-            <div class="gear-card">
-                <i class="fa-solid fa-laptop-code"></i>
+
+            <!-- 5. Dell Latitude 7400 -->
+            <div class="tech-card" data-category="daily">
+                <div class="tech-card-header">
+                    <div class="tech-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <span class="tech-tag tag-daily">Daily Driver</span>
+                </div>
                 <h3>Dell Latitude 7400</h3>
-                <p>A reliable daily driver laptop used for productivity, editing, and schoolwork.</p>
+                <p>My workhorse laptop for video editing, managing the channel, schoolwork, and daily productivity.</p>
+                <div class="tech-specs">
+                    <span><i class="fa-solid fa-microchip"></i> Intel i7</span>
+                    <span><i class="fa-solid fa-star"></i> Main PC</span>
+                </div>
             </div>
-            <div class="gear-card">
-                <i class="fa-solid fa-dice-d6"></i>
+
+            <!-- 6. Switch Lite -->
+            <div class="tech-card" data-category="console">
+                <div class="tech-card-header">
+                    <div class="tech-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <span class="tech-tag tag-console">Handheld</span>
+                </div>
                 <h3>Nintendo Switch Lite</h3>
-                <p>Portable handheld gaming on the go for indie games and Nintendo classics.</p>
+                <p>Dedicated portable gaming for Nintendo first-party titles, indie games, and gaming on the go.</p>
+                <div class="tech-specs">
+                    <span><i class="fa-solid fa-battery-full"></i> Portable</span>
+                    <span><i class="fa-solid fa-gamepad"></i> Handheld</span>
+                </div>
             </div>
-            <div class="gear-card">
-                <i class="fa-solid fa-compact-disc"></i>
-                <h3>2006 iPod</h3>
-                <p>Pure retro music nostalgia. Click-wheel architecture from a different era of tech!</p>
+
+            <!-- 7. 2006 iPod -->
+            <div class="tech-card" data-category="retro">
+                <div class="tech-card-header">
+                    <div class="tech-icon"><i class="fa-solid fa-compact-disc"></i></div>
+                    <span class="tech-tag tag-retro">2006 Retro</span>
+                </div>
+                <h3>2006 Apple iPod</h3>
+                <p>Classic click-wheel audio player. Distraction-free retro music device from a totally different era.</p>
+                <div class="tech-specs">
+                    <span><i class="fa-solid fa-music"></i> Click-Wheel</span>
+                    <span><i class="fa-solid fa-heart"></i> Classic</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="about-container">
-            <h2>About LewisTech</h2>
-            <p>I've always loved taking things apart, seeing how they work, and comparing vintage gadgets to what we have today. Whether it's an iPod from 2006 or a gaming console, LewisTech is all about keeping cool hardware alive and testing it out!</p>
+    <section class="section" id="vault">
+        <div class="section-header">
+            <h2>Video Showcase & Ideas</h2>
+            <p>Click on any concept to preview what I'm testing and filming on the channel!</p>
+        </div>
+
+        <div class="vault-grid">
+            <div class="video-card" onclick="openModal('2011 MacBook Pro in 2026', 'Testing if a 15-year-old MacBook Pro can handle web browsing, light video editing, and modern tasks today.')">
+                <div class="video-thumb">
+                    <i class="fa-solid fa-circle-play play-btn"></i>
+                </div>
+                <div class="video-body">
+                    <h3>Using a 2011 MacBook Pro in 2026</h3>
+                    <p>Can Apple\'s vintage unibody laptop still hold up for modern workflows?</p>
+                    <div class="video-meta">
+                        <span><i class="fa-solid fa-eye"></i> Concept Video</span>
+                        <span>Preview <i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card" onclick="openModal('Jailbreaking a 12-Year-Old iPad 4', 'Bringing an old 32-bit iPad back to life with iOS tweaks, retro emulators, and custom app stores.')">
+                <div class="video-thumb">
+                    <i class="fa-solid fa-circle-play play-btn"></i>
+                </div>
+                <div class="video-body">
+                    <h3>Jailbreaking a 12-Year-Old iPad 4</h3>
+                    <p>Unlocking custom tweaks and old-school games on legacy iOS hardware.</p>
+                    <div class="video-meta">
+                        <span><i class="fa-solid fa-eye"></i> Concept Video</span>
+                        <span>Preview <i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card" onclick="openModal('2006 iPod vs Modern Streaming', 'Comparing the tactile click-wheel experience of a 2006 iPod against Spotify and Apple Music.')">
+                <div class="video-thumb">
+                    <i class="fa-solid fa-circle-play play-btn"></i>
+                </div>
+                <div class="video-body">
+                    <h3>2006 iPod vs Modern Music Streaming</h3>
+                    <p>Why using a classic click-wheel iPod in 2026 is surprisingly fun.</p>
+                    <div class="video-meta">
+                        <span><i class="fa-solid fa-eye"></i> Concept Video</span>
+                        <span>Preview <i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="section" id="about">
+        <div class="about-wrapper">
+            <div class="about-text">
+                <h2>About LewisTech</h2>
+                <p>I'm Lewis, a 13-year-old tech enthusiast from New Zealand creating content about hardware, gaming, and retro technology.</p>
+                <p>Rather than just reviewing the newest $1,000 phones, I love taking older gear—like 2006 iPods or 2011 MacBooks—and seeing how far we can push them today.</p>
+                <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-youtube"></i> Join the Channel
+                </a>
+            </div>
+            <div class="about-stats">
+                <div class="stat-box">
+                    <h4>13</h4>
+                    <p>Age Creator</p>
+                </div>
+                <div class="stat-box">
+                    <h4>7+</h4>
+                    <p>Tech Locker Devices</p>
+                </div>
+                <div class="stat-box">
+                    <h4>NZ</h4>
+                    <p>Based in New Zealand</p>
+                </div>
+                <div class="stat-box">
+                    <h4>2006</h4>
+                    <p>Oldest Device Tested</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="video-modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="modal-title">Video Title</h3>
+            <p id="modal-desc">Video description goes here...</p>
+            <a href="https://www.youtube.com/@LewisTech1" target="_blank" class="btn btn-primary">
+                <i class="fa-brands fa-youtube"></i> Watch on YouTube
+            </a>
+        </div>
+    </div>
+
     <footer>
-        <div class="social-icons">
-            <a href="https://www.youtube.com/@LewisTech1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <div class="footer-socials">
+            <a href="https://www.youtube.com/@LewisTech1" target="_blank" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://apexnz.me" class="domain-link" aria-label="Domain"><i class="fa-solid fa-globe"></i></a>
         </div>
-        <p>&copy; 2026 LewisTech. All rights reserved.</p>
+        <p class="footer-copy">© 2026 LewisTech. Hosted at <span class="domain-tag">apexnz.me</span></p>
     </footer>
 
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
+            }
+        });
+
+        // Close mobile nav when clicking links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                if (menuToggle.querySelector('i')) {
+                    menuToggle.querySelector('i').className = 'fa-solid fa-bars';
+                }
+            });
+        });
+
+        // Tech Locker Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const techCards = document.querySelectorAll('.tech-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                techCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Video Modal Logic
+        const modal = document.getElementById('video-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+
+        function openModal(title, desc) {
+            modalTitle.textContent = title;
+            modalDesc.textContent = desc;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside box
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
